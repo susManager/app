@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.SceneController">
    <children>
       <Pane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #1f1543;">
          <children>
-            <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../susManager_logo.png" />
                </image>
@@ -23,12 +23,12 @@
                   <Font name="Segoe UI" size="22.0" />
                </font>
             </Text>
-            <Button layoutX="282.0" layoutY="10.0" minWidth="32.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="32.0" text="Settings">
+            <Button fx:id="switch_to_settings" layoutX="282.0" layoutY="10.0" minWidth="32.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="32.0" text="Settings">
                <font>
                   <Font size="1.0" />
                </font>
             </Button>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../settings_icon.png" />
                </image>
