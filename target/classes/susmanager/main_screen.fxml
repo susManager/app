@@ -42,11 +42,11 @@
             <Font name="Segoe UI" size="10.0" />
          </font>
       </Button>
-      <ScrollPane hbarPolicy="NEVER" layoutX="19.0" layoutY="118.0" prefHeight="367.0" prefWidth="312.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="19.0" layoutY="130.0" prefHeight="340.0" prefWidth="312.0" vbarPolicy="ALWAYS" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -10; -fx-background-color: #070a1b; -fx-background-insets: -10;">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </ScrollPane>
-      <TextField layoutX="101.0" layoutY="75.0" promptText="Search for passwords..." />
+      <TextField layoutX="101.0" layoutY="75.0" promptText="Search for passwords..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 10; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;" />
    </children>
 </Pane>

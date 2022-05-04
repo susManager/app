@@ -58,8 +58,8 @@
             <Glow />
          </effect>
         </BorderPane>
-        <PasswordField layoutX="101.0" layoutY="275.0" promptText="Enter Password..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;" />
+        <PasswordField layoutX="101.0" layoutY="275.0" promptText="Enter Password..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;" />
         <Button layoutX="82.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen" prefHeight="17.0" prefWidth="187.0" style="-fx-background-color: #30b054;" text="[DEBUG] skip to main screen" textFill="WHITE" />
-        <TextField layoutX="101.0" layoutY="211.0" promptText="Enter Email..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;" styleClass="asdasd" />
+        <TextField layoutX="101.0" layoutY="211.0" promptText="Enter Email..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;"/>
     </children>
 </Pane>
