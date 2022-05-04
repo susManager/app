@@ -47,7 +47,7 @@
       <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Debug" />
       <Text fill="WHITE" layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="force UDP procotol" />
       <Text fill="WHITE" layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="allow woman" />
-      <BorderPane layoutX="129.0" layoutY="87.943359375">
+      <BorderPane layoutX="129.0" layoutY="87.943359375" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;">
          <center>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
                <font>
