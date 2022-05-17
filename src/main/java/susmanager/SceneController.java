@@ -26,6 +26,16 @@ public class SceneController {
   }
 
   @FXML
+  private void switchToAddPassword() throws IOException {
+    App.setRoot("add_password");
+  }
+
+  @FXML
+  private void switchToSettingsAddPassword() throws IOException {
+    App.setRoot("settings_add_password");
+  }
+
+  @FXML
   private void playThudSound() throws IOException {
     App.playThudSound();
   }
