@@ -3,15 +3,10 @@ package susmanager;
 import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -43,14 +38,7 @@ public class App extends Application {
     return fxmlLoader.load();
   }
 
-
-
-  static void searchList(){
-
-  }
-
-
-
+  static void searchList() {}
 
   static void playThudSound() {
     String musicFile = "src/main/resources/vine_boom.wav";

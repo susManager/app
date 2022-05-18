@@ -1,15 +1,13 @@
 package susmanager;
 
 import java.io.IOException;
-import java.util.List;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Control;
 import javafx.scene.control.ListView;
 
 public class SceneController extends Control {
+
+  public boolean allowPopulation = true;
 
   @FXML
   private void switchToSettings() throws IOException {
@@ -50,12 +48,15 @@ public class SceneController extends Control {
   private ListView listView1;
 
   @FXML
-  private void populateList(){
-    listView1.getItems().addAll("Eins", "Zwei", "Drei", "Vier");
+  private void populateList() {
+    if (allowPopulation == true) {
+      listView1.getItems().addAll("Eins", "Zwei", "Drei", "Vier");
+    }
+    allowPopulation = false;
   }
 
   @FXML
-  private void searchList(){
+  private void searchList() {
     App.searchList();
   }
 }
