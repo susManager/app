@@ -1,9 +1,15 @@
 package susmanager;
 
 import java.io.IOException;
-import javafx.fxml.FXML;
+import java.util.List;
 
-public class SceneController {
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Control;
+import javafx.scene.control.ListView;
+
+public class SceneController extends Control {
 
   @FXML
   private void switchToSettings() throws IOException {
@@ -38,5 +44,18 @@ public class SceneController {
   @FXML
   private void playThudSound() throws IOException {
     App.playThudSound();
+  }
+
+  @FXML
+  private ListView listView1;
+
+  @FXML
+  private void populateList(){
+    listView1.getItems().addAll("Eins", "Zwei", "Drei", "Vier");
+  }
+
+  @FXML
+  private void searchList(){
+    App.searchList();
   }
 }
