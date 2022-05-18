@@ -38,8 +38,6 @@ public class App extends Application {
     return fxmlLoader.load();
   }
 
-  static void searchList() {}
-
   static void playThudSound() {
     String musicFile = "src/main/resources/vine_boom.wav";
 
