@@ -14,6 +14,11 @@
    <children>
       <Pane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #1f1543;">
          <children>
+            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../settings_icon.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../susManager_logo.png" />
@@ -29,18 +34,13 @@
                   <Font size="1.0" />
                </font>
             </Button>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../settings_icon.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
       <Button layoutX="76.0" layoutY="499.0" mnemonicParsing="false" onAction="#switchToAddPassword" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #30b054;" text="ADD PASSWORD" textFill="WHITE" />
       <TextField fx:id="searchBar1" layoutX="71.0" layoutY="68.0" onAction="#search" prefHeight="25.0" prefWidth="214.0" promptText="Search for Passwords..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 10; -fx-border-insets: -10; -fx-background-color: #070a1b; -fx-background-insets: -10; -fx-text-fill: white;" />
       <ScrollPane layoutX="26.0" layoutY="114.0" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -5; -fx-background-color: #070a1b; -fx-background-insets: -5;">
          <content>
-            <ListView fx:id="listView1" prefHeight="369.0" prefWidth="297.0" style="-fx-background-color: #070a1b; -fx-text-fill: white;" />
+            <ListView fx:id="listView1" prefHeight="369.0" prefWidth="297.0" style="-fx-text-fill: white; -fx-background-color: null; -fx-background-image: src\main\resources\nothing_found_2.png;" />
          </content>
       </ScrollPane>
    </children>
