@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 public class SceneController {
 
@@ -72,6 +73,12 @@ public class SceneController {
 
   @FXML
   void search(ActionEvent event) {
+    listView1.getItems().clear();
+    listView1.getItems().addAll(searchList(searchBar1.getText(), words));
+  }
+
+  @FXML
+  void search2(KeyEvent event) {
     listView1.getItems().clear();
     listView1.getItems().addAll(searchList(searchBar1.getText(), words));
   }
