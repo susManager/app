@@ -13,6 +13,11 @@ import javafx.scene.input.KeyEvent;
 
 public class SceneController {
 
+  @FXML
+  public TextField email;
+  public TextField password;
+  public TextField notes;
+
   //switch to different Scenes
   @FXML
   private void switchToSettings() throws IOException {
@@ -52,7 +57,7 @@ public class SceneController {
 
   //Code for the whole ListView things, includes population and searching
   @FXML
-  private ListView<String> listView1;
+  private ListView<String> listView1 = new ListView<>();
 
   @FXML
   private TextField searchBar1;
@@ -81,6 +86,14 @@ public class SceneController {
   void search2(KeyEvent event) {
     listView1.getItems().clear();
     listView1.getItems().addAll(searchList(searchBar1.getText(), words));
+  }
+
+  @FXML //TODO: fix on scene change new array populated with default constructor
+  void addPassword() throws IOException {
+    listView1.getItems().add(password.getText());
+    words.add(password.getText());
+    System.out.println(System.identityHashCode(words));
+    switchToMainScreen();
   }
 
   private List<String> searchList(
