@@ -24,9 +24,9 @@
                     <font>
                         <Font name="Segoe UI" size="22.0" />
                     </font>
-               <effect>
-                  <Glow />
-               </effect>
+                    <effect>
+                        <Glow />
+                    </effect>
                 </Text>
                 <Button fx:id="switch_to_settings" layoutX="282.0" layoutY="10.0" minWidth="32.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="32.0" text="Settings">
                     <font>
@@ -40,7 +40,7 @@
                 </ImageView>
             </children>
         </Pane>
-        <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #30b054;" text="Login" textFill="WHITE" />
+        <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#checkPassword" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #30b054;" text="Login" textFill="WHITE" />
         <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #ba1b1f;" text="Create Account" textFill="WHITE">
             <font>
                 <Font name="Segoe UI" size="10.0" />
@@ -54,12 +54,13 @@
                     </font>
                 </Text>
             </center>
-         <effect>
-            <Glow />
-         </effect>
+            <effect>
+                <Glow />
+            </effect>
         </BorderPane>
-        <PasswordField layoutX="101.0" layoutY="275.0" promptText="Enter Password..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;" />
+        <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;" />
         <Button layoutX="82.0" layoutY="491.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen" prefHeight="17.0" prefWidth="187.0" style="-fx-background-color: #30b054;" text="[DEBUG] skip to main screen" textFill="WHITE" />
-        <TextField layoutX="101.0" layoutY="211.0" promptText="Enter Username..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;" />
+        <TextField fx:id="login_username" layoutX="101.0" layoutY="211.0" promptText="Enter Username..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;" />
+        <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: #050714;" text="Either wrong Password or Username!" />
     </children>
 </Pane>

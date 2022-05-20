@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
@@ -15,6 +16,7 @@ public class SceneController {
 
   @FXML
   public TextField email;
+
   public TextField password;
   public TextField notes;
 
@@ -114,5 +116,29 @@ public class SceneController {
         }
       )
       .collect(Collectors.toList());
+  }
+
+  //Login Password Check
+
+  @FXML
+  private PasswordField login_pwd;
+
+  @FXML
+  private TextField login_username;
+
+  @FXML
+  private TextField wrong_password_or_username;
+
+  @FXML
+  void checkPassword() throws IOException {
+    wrong_password_or_username.setOpacity(0);
+
+    if (login_username.getText().equals("DemoUser")) {
+      if (login_pwd.getText().equals("1234")) {
+        System.out.println("right password / username");
+        switchToMainScreen();
+      }
+    }
+    wrong_password_or_username.setOpacity(1);
   }
 }
