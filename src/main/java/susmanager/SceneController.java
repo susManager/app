@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 public class SceneController {
@@ -63,6 +63,9 @@ public class SceneController {
   private ListView<String> listView1 = new ListView<>();
 
   @FXML
+  private ImageView nothing_found;
+
+  @FXML
   private TextField searchBar1;
 
   public boolean allowPopulation = true;
@@ -103,20 +106,30 @@ public class SceneController {
     String searchWords,
     List<String> listOfStrings
   ) {
+    nothing_found.setOpacity(0);
+
     List<String> searchWordsArray = Arrays.asList(
       searchWords.trim().split(" ")
     );
 
-    return listOfStrings
-      .stream()
-      .filter(
-        input -> {
-          return searchWordsArray
-            .stream()
-            .allMatch(word -> input.toLowerCase().contains(word.toLowerCase()));
-        }
-      )
-      .collect(Collectors.toList());
+    listOfStrings =
+      listOfStrings
+        .stream()
+        .filter(
+          input -> {
+            return searchWordsArray
+              .stream()
+              .allMatch(
+                word -> input.toLowerCase().contains(word.toLowerCase())
+              );
+          }
+        )
+        .collect(Collectors.toList());
+
+    if (listOfStrings.size() == 0) {
+      nothing_found.setOpacity(1);
+    }
+    return listOfStrings;
   }
 
   //Login Password Check
