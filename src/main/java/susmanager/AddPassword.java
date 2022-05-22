@@ -24,7 +24,7 @@ public class AddPassword {
     }
 
     @FXML private void addPassword() throws IOException {
-        MainScreen.addPassowrd(new Entry(
+        MainScreen.addPassword(new Entry(
                 name.getText(),
                 user.getText(),
                 password.getText(),

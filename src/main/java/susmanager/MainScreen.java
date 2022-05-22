@@ -99,7 +99,7 @@ public class MainScreen implements Initializable {
         ));
     }
 
-    public static void addPassowrd(Entry newEntry) {
+    public static void addPassword(Entry newEntry) {
         pass.add(newEntry);
     }
 }
