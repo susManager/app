@@ -36,13 +36,8 @@ public class SceneController {
 
   @FXML
   private void switchToLogin() throws IOException {
-    pass = setupPasswords();
+    setupPasswords();
     App.setRoot("login");
-  }
-
-  @FXML
-  private void switchToSettingsLogin() throws IOException {
-    App.setRoot("settings_login");
   }
 
   @FXML
@@ -73,11 +68,9 @@ public class SceneController {
 
   public boolean allowPopulation = true;
 
-  //TODO: bad practice as passwords are stored statically (eg. shared across multiple instances)
-  private static ArrayList<String> pwds = new ArrayList<>(Arrays.asList("Steam", "Discord", "Teams", "Google"));
 
-  private static ArrayList<Entry> setupPasswords() {
-    return new ArrayList<>(Arrays.asList(
+  public static void setupPasswords() {
+    pass = new ArrayList<>(Arrays.asList(
             new Entry("Steam", "steamUser", "steamPassword", 1),
             new Entry("Discord", "discordUser", "discordPassword", 1),
             new Entry("Teams", "teamsUser", "teamsPassword", 1),
@@ -85,7 +78,7 @@ public class SceneController {
     ));
   }
 
-  private static ArrayList<Entry> pass = setupPasswords();
+  private static ArrayList<Entry> pass;
 
   @FXML
   private void populateList() {

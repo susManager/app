@@ -47,6 +47,7 @@ public class Login {
 
     @FXML
     private void switchToMainScreen() throws IOException {
+        SceneController.setupPasswords();
         App.setRoot("main_screen");
     }
 

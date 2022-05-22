@@ -21,7 +21,10 @@ public class App extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     fxmlStack = new Stack<>();
+    fxmlStack.push("login");
+
     scene = new Scene(loadFXML("login"), 350, 550);
+
     stage.setResizable(false);
     stage.setTitle("susManager");
     stage
