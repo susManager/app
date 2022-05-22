@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
+import fundur.systems.lib.Entry;
+
 public class SceneController {
 
   @FXML
@@ -34,6 +36,7 @@ public class SceneController {
 
   @FXML
   private void switchToLogin() throws IOException {
+    pass = setupPasswords();
     App.setRoot("login");
   }
 
@@ -60,7 +63,7 @@ public class SceneController {
 
   //Code for the whole ListView things, includes population and searching
   @FXML
-  private ListView<String> listView1 = new ListView<>();
+  private ListView<Entry> listView1 = new ListView<>();
 
   @FXML
   private ImageView nothing_found;
@@ -73,40 +76,46 @@ public class SceneController {
   //TODO: bad practice as passwords are stored statically (eg. shared across multiple instances)
   private static ArrayList<String> pwds = new ArrayList<>(Arrays.asList("Steam", "Discord", "Teams", "Google"));
 
-  ArrayList<String> words = new ArrayList<>(
-    Arrays.asList("Steam", "Discord", "Teams", "Google")
-  );
+  private static ArrayList<Entry> setupPasswords() {
+    return new ArrayList<>(Arrays.asList(
+            new Entry("Steam", "steamUser", "steamPassword", 1),
+            new Entry("Discord", "discordUser", "discordPassword", 1),
+            new Entry("Teams", "teamsUser", "teamsPassword", 1),
+            new Entry("Google", "googleUser", "googlePassword", 1)
+    ));
+  }
+
+  private static ArrayList<Entry> pass = setupPasswords();
 
   @FXML
   private void populateList() {
-    if (allowPopulation == true) {
-      listView1.getItems().addAll(pwds);
+    if (allowPopulation) {
+      listView1.getItems().addAll(pass);
+      allowPopulation = false;
     }
-    allowPopulation = false;
   }
 
   @FXML
   void search(ActionEvent event) {
     listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), pwds));
+    listView1.getItems().addAll(searchList(searchBar1.getText(), pass));
   }
 
   @FXML
   void search2(KeyEvent event) {
     listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), pwds));
+    listView1.getItems().addAll(searchList(searchBar1.getText(), pass));
   }
 
   @FXML
   void addPassword() throws IOException {
-    listView1.getItems().add(password.getText());
-    pwds.add(password.getText());
+    pass.add(new Entry(email.getText(), email.getText(), password.getText(), 0));
     switchToMainScreen();
   }
 
-  private List<String> searchList(
+  private List<Entry> searchList(
     String searchWords,
-    List<String> listOfStrings
+    List<Entry> results
   ) {
     nothing_found.setOpacity(0);
 
@@ -114,24 +123,24 @@ public class SceneController {
       searchWords.trim().split(" ")
     );
 
-    listOfStrings =
-      listOfStrings
+    results =
+      results
         .stream()
         .filter(
           input -> {
             return searchWordsArray
               .stream()
               .allMatch(
-                word -> input.toLowerCase().contains(word.toLowerCase())
+                word -> input.name().toLowerCase().contains(word.toLowerCase())
               );
           }
         )
         .collect(Collectors.toList());
 
-    if (listOfStrings.size() == 0) {
+    if (results.size() == 0) {
       nothing_found.setOpacity(1);
     }
-    return listOfStrings;
+    return results;
   }
 
   //Login Password Check
