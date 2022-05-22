@@ -70,6 +70,9 @@ public class SceneController {
 
   public boolean allowPopulation = true;
 
+  //TODO: bad practice as passwords are stored statically (eg. shared across multiple instances)
+  private static ArrayList<String> pwds = new ArrayList<>(Arrays.asList("Steam", "Discord", "Teams", "Google"));
+
   ArrayList<String> words = new ArrayList<>(
     Arrays.asList("Steam", "Discord", "Teams", "Google")
   );
@@ -77,7 +80,7 @@ public class SceneController {
   @FXML
   private void populateList() {
     if (allowPopulation == true) {
-      listView1.getItems().addAll(words);
+      listView1.getItems().addAll(pwds);
     }
     allowPopulation = false;
   }
@@ -85,20 +88,19 @@ public class SceneController {
   @FXML
   void search(ActionEvent event) {
     listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), words));
+    listView1.getItems().addAll(searchList(searchBar1.getText(), pwds));
   }
 
   @FXML
   void search2(KeyEvent event) {
     listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), words));
+    listView1.getItems().addAll(searchList(searchBar1.getText(), pwds));
   }
 
   @FXML //TODO: fix on scene change new array populated with default constructor
   void addPassword() throws IOException {
     listView1.getItems().add(password.getText());
-    words.add(password.getText());
-    System.out.println(System.identityHashCode(words));
+    pwds.add(password.getText());
     switchToMainScreen();
   }
 
