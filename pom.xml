@@ -49,7 +49,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>susmanager.Entry</mainClass>
+                            <mainClass>susmanager.EntryPoint</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -70,7 +70,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>susmanager.Entry</mainClass>
+                            <mainClass>susmanager.EntryPoint</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -85,7 +85,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>susmanager.Entry</mainClass>
+                            <mainClass>susmanager.EntryPoint</mainClass>
                         </configuration>
                     </execution>
                 </executions>

@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>susmanager.Entry</mainClass>
+                  <mainClass>susmanager.EntryPoint</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -33,7 +33,7 @@
           <execution>
             <id>default-cli</id>
             <configuration>
-              <mainClass>susmanager.Entry</mainClass>
+              <mainClass>susmanager.EntryPoint</mainClass>
             </configuration>
           </execution>
         </executions>

@@ -97,7 +97,7 @@ public class SceneController {
     listView1.getItems().addAll(searchList(searchBar1.getText(), pwds));
   }
 
-  @FXML //TODO: fix on scene change new array populated with default constructor
+  @FXML
   void addPassword() throws IOException {
     listView1.getItems().add(password.getText());
     pwds.add(password.getText());
