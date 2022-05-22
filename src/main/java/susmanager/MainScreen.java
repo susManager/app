@@ -1,14 +1,12 @@
 package susmanager;
 
 import fundur.systems.lib.Entry;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.net.URL;

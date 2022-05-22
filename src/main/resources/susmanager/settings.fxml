@@ -9,52 +9,52 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.Settings">
-    <children>
-        <Pane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #1f1543;">
-            <children>
-                <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../susManager_logo.png" />
-                    </image>
-                </ImageView>
-                <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager">
-                    <font>
-                        <Font name="Segoe UI" size="22.0" />
-                    </font>
-                </Text>
-                <Button layoutX="282.0" layoutY="10.0" minWidth="32.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="32.0" text="back">
-                    <font>
-                        <Font size="1.0" />
-                    </font>
-                </Button>
-                <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchBack" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../arrow_forward.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
-        <Button layoutX="108.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#switchToLogin" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #ba1b1f;" text="Logout" textFill="WHITE">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+      prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.Settings">
+    <Pane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #1f1543;">
+        <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound"
+                   pickOnBounds="true" preserveRatio="true">
+            <Image url="@../susManager_logo.png"/>
+        </ImageView>
+        <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager">
             <font>
-                <Font name="Segoe UI" size="10.0" />
+                <Font name="Segoe UI" size="22.0"/>
+            </font>
+        </Text>
+        <Button layoutX="282.0" layoutY="10.0" minWidth="32.0" mnemonicParsing="false" opacity="0.0"
+                prefHeight="30.0" prefWidth="32.0" text="back">
+            <font>
+                <Font size="1.0"/>
             </font>
         </Button>
-        <Text fill="WHITE" layoutX="90.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager vX.X | Build: xxxxxxx" />
-      <ToggleButton layoutX="235.0" layoutY="183.0" mnemonicParsing="false" text="On / Off" />
-      <ToggleButton layoutX="235.0" layoutY="231.0" mnemonicParsing="false" text="On / Off" />
-      <ToggleButton layoutX="235.0" layoutY="278.0" mnemonicParsing="false" text="On / Off" />
-      <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Debug" />
-      <Text fill="WHITE" layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="force UDP procotol" />
-      <Text fill="WHITE" layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="allow woman" />
-      <BorderPane layoutX="129.0" layoutY="87.943359375" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;">
-         <center>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Text>
-         </center>
-      </BorderPane>
-    </children>
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchBack"
+                   pickOnBounds="true" preserveRatio="true">
+            <Image url="@../arrow_forward.png"/>
+        </ImageView>
+    </Pane>
+    <Button layoutX="108.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#switchToLogin" prefHeight="43.0"
+            prefWidth="135.0" style="-fx-background-color: #ba1b1f;" text="Logout" textFill="WHITE">
+        <font>
+            <Font name="Segoe UI" size="10.0"/>
+        </font>
+    </Button>
+    <Text fill="WHITE" layoutX="90.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="susManager vX.X | Build: xxxxxxx"/>
+    <ToggleButton layoutX="235.0" layoutY="183.0" mnemonicParsing="false" text="On / Off"/>
+    <ToggleButton layoutX="235.0" layoutY="231.0" mnemonicParsing="false" text="On / Off"/>
+    <ToggleButton layoutX="235.0" layoutY="278.0" mnemonicParsing="false" text="On / Off"/>
+    <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Debug"/>
+    <Text fill="WHITE" layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="force UDP procotol"/>
+    <Text fill="WHITE" layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="allow woman"/>
+    <BorderPane layoutX="129.0" layoutY="87.943359375"
+                style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;">
+        <center>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+              <font>
+                  <Font size="26.0"/>
+              </font>
+          </Text>
+        </center>
+    </BorderPane>
 </Pane>
