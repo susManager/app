@@ -100,4 +100,8 @@ public class MainScreen implements Initializable {
                 new Entry("Google", "googleUser", "googlePassword", 1)
         ));
     }
+
+    public static void addPassowrd(Entry newEntry) {
+        pass.add(newEntry);
+    }
 }
