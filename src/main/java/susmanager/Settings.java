@@ -18,7 +18,6 @@ public class Settings {
 
     @FXML
     private void switchToLogin() throws IOException {
-        SceneController.setupPasswords();
         App.setRoot("login");
     }
 }

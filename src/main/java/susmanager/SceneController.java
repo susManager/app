@@ -23,12 +23,6 @@ public class SceneController {
   public TextField password;
   public TextField notes;
 
-  //switch to different Scenes
-  @FXML
-  private void switchToSettings() throws IOException {
-    App.setRoot("settings");
-  }
-
   @FXML
   private void switchToMainScreen() throws IOException {
     App.setRoot("main_screen");
@@ -56,18 +50,6 @@ public class SceneController {
     App.playThudSound();
   }
 
-  //Code for the whole ListView things, includes population and searching
-  @FXML
-  private ListView<Entry> listView1 = new ListView<>();
-
-  @FXML
-  private ImageView nothing_found;
-
-  @FXML
-  private TextField searchBar1;
-
-  public boolean allowPopulation = true;
-
 
   public static void setupPasswords() {
     pass = new ArrayList<>(Arrays.asList(
@@ -81,58 +63,8 @@ public class SceneController {
   private static ArrayList<Entry> pass;
 
   @FXML
-  private void populateList() {
-    if (allowPopulation) {
-      listView1.getItems().addAll(pass);
-      allowPopulation = false;
-    }
-  }
-
-  @FXML
-  void search(ActionEvent event) {
-    listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), pass));
-  }
-
-  @FXML
-  void search2(KeyEvent event) {
-    listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), pass));
-  }
-
-  @FXML
   void addPassword() throws IOException {
     pass.add(new Entry(email.getText(), email.getText(), password.getText(), 0));
     switchToMainScreen();
-  }
-
-  private List<Entry> searchList(
-    String searchWords,
-    List<Entry> results
-  ) {
-    nothing_found.setOpacity(0);
-
-    List<String> searchWordsArray = Arrays.asList(
-      searchWords.trim().split(" ")
-    );
-
-    results =
-      results
-        .stream()
-        .filter(
-          input -> {
-            return searchWordsArray
-              .stream()
-              .allMatch(
-                word -> input.name().toLowerCase().contains(word.toLowerCase())
-              );
-          }
-        )
-        .collect(Collectors.toList());
-
-    if (results.size() == 0) {
-      nothing_found.setOpacity(1);
-    }
-    return results;
   }
 }
