@@ -92,10 +92,10 @@ public class MainScreen implements Initializable {
      */
     public static void setupPasswords() {
         pass = new ArrayList<>(Arrays.asList(
-                new Entry("Steam", "steamUser", "steamPassword", 1),
-                new Entry("Discord", "discordUser", "discordPassword", 1),
-                new Entry("Teams", "teamsUser", "teamsPassword", 1),
-                new Entry("Google", "googleUser", "googlePassword", 1)
+                new Entry("Steam", "steamUser", "steamPassword", "notes", 1),
+                new Entry("Discord", "discordUser", "discordPassword", "notes", 1),
+                new Entry("Teams", "teamsUser", "teamsPassword", "notes", 1),
+                new Entry("Google", "googleUser", "googlePassword", "notes", 1)
         ));
     }
 

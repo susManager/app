@@ -28,6 +28,7 @@ public class AddPassword {
                 name.getText(),
                 user.getText(),
                 password.getText(),
+                notes.getText(),
                 System.currentTimeMillis() / 1000
         ));
         switchToMainScreen();
