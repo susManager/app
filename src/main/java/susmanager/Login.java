@@ -11,6 +11,8 @@ import fundur.systems.lib.sec.Security;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import javax.crypto.BadPaddingException;
+
 public class Login {
 
   @FXML
@@ -35,18 +37,27 @@ public class Login {
 
   @FXML
   private void checkPassword() throws IOException {
+    //TODO: introduce errors that make sense lol
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);
     account_created.setOpacity(0);
     no_username_entered.setOpacity(0);
 
     String hashUser = login_username.getText();
-    EncrState state = NetManager.getEncrStateFromServer(hashUser);
     try {
       List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
       MainScreen.setupPasswords(list);
       switchToMainScreen();
-    } catch (Exception e) {
+    } catch (BadPaddingException _ignored) {
+      wrong_password_or_username.setOpacity(1);
+    } catch (NumberFormatException e) {
+       if (e.getMessage().equals("For input string: \"nothing found\"")) {
+         System.out.println("user not found");
+       } else {
+         throw e;
+       }
+    }
+    catch (Exception e) {
       System.out.println(e.getMessage());
     }
 
