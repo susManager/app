@@ -33,7 +33,7 @@ public class App extends Application {
     stage.show();
     playThudSoundShort();
     Random ran = new Random();
-    long ranNum = ran.nextInt(500, 1500);
+    long ranNum = ran.nextInt( 1000) + 500;
     System.out.println("ranNum: " + ranNum);
     delay(
       ranNum,
