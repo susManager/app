@@ -11,6 +11,11 @@ public class Settings {
   }
 
   @FXML
+  private void playBackgroundMusic() {
+    App.playBackgroundMusic();
+  }
+
+  @FXML
   private void switchBack() throws IOException {
     App.popBack();
   }
