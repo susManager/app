@@ -23,9 +23,7 @@ public class App extends Application {
   public void start(Stage stage) throws IOException {
     fxmlStack = new Stack<>();
     fxmlStack.push("splash_screen");
-
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
-
     stage.setResizable(false);
     stage.setTitle("susManager");
     stage
@@ -33,6 +31,7 @@ public class App extends Application {
       .add(new Image(("file:src/main/resources/susManager_logo.png")));
     stage.setScene(scene);
     stage.show();
+    playThudSound();
     Random ran = new Random();
     long ranNum = ran.nextInt(500, 1500);
     System.out.println("ranNum: " + ranNum);
