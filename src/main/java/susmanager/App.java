@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Stack;
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,9 +21,9 @@ public class App extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     fxmlStack = new Stack<>();
-    fxmlStack.push("login");
+    fxmlStack.push("splash_screen");
 
-    scene = new Scene(loadFXML("login"), 350, 550);
+    scene = new Scene(loadFXML("splash_screen"), 350, 550);
 
     stage.setResizable(false);
     stage.setTitle("susManager");
@@ -31,6 +32,15 @@ public class App extends Application {
       .add(new Image(("file:src/main/resources/susManager_logo.png")));
     stage.setScene(scene);
     stage.show();
+    delay(1000, () -> {
+      try {
+        App.setRoot("login");
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+);
+
   }
 
   static void setRoot(String fxml) throws IOException {
@@ -61,6 +71,20 @@ public class App extends Application {
     Media sound = new Media(new File(musicFile).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
     mediaPlayer.play();
+  }
+
+
+  public static void delay(long millis, Runnable continuation) {
+    Task<Void> sleeper = new Task<Void>() {
+      @Override
+      protected Void call() throws Exception {
+        try { Thread.sleep(millis); }
+        catch (InterruptedException e) { }
+        return null;
+      }
+    };
+    sleeper.setOnSucceeded(event -> continuation.run());
+    new Thread(sleeper).start();
   }
 
   public static void main(String[] args) {
