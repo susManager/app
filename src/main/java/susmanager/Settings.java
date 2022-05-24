@@ -1,23 +1,22 @@
 package susmanager;
 
-import javafx.fxml.FXML;
-
 import java.io.IOException;
+import javafx.fxml.FXML;
 
 public class Settings {
 
-    @FXML
-    private void playThudSound() {
-        App.playThudSound();
-    }
+  @FXML
+  private void playThudSound() {
+    App.playThudSound();
+  }
 
-    @FXML
-    private void switchBack() throws IOException {
-        App.popBack();
-    }
+  @FXML
+  private void switchBack() throws IOException {
+    App.popBack();
+  }
 
-    @FXML
-    private void switchToLogin() throws IOException {
-        App.setRoot("login");
-    }
+  @FXML
+  private void switchToLogin() throws IOException {
+    App.setRoot("login");
+  }
 }

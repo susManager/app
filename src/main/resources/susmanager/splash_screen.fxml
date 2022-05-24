@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.Login">
+    <BorderPane layoutX="106.0" layoutY="229.0" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -20; -fx-background-color: #1f1543; -fx-background-insets: -15;">
+        <center>
+            <Pane prefHeight="92.0" prefWidth="139.0" style="-fx-background-color: #1f1543;">
+                <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="54.0" layoutY="14.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../susManager_logo.png" />
+                </ImageView>
+                <Text fill="WHITE" layoutX="11.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager">
+                    <font>
+                        <Font name="Segoe UI" size="22.0" />
+                    </font>
+                    <effect>
+                        <Glow />
+                    </effect>
+                </Text>
+            </Pane>
+        </center>
+    </BorderPane>
+    <Text fill="WHITE" layoutX="137.0" layoutY="530.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading...">
+        <font>
+            <Font name="Segoe UI" size="18.0" />
+        </font>
+    </Text>
+</Pane>
