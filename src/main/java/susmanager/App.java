@@ -31,7 +31,7 @@ public class App extends Application {
       .add(new Image(("file:src/main/resources/susManager_logo.png")));
     stage.setScene(scene);
     stage.show();
-    playThudSound();
+    playThudSoundShort();
     Random ran = new Random();
     long ranNum = ran.nextInt(500, 1500);
     System.out.println("ranNum: " + ranNum);
@@ -71,6 +71,22 @@ public class App extends Application {
 
   static void playThudSound() {
     String musicFile = "src/main/resources/vine_boom.wav";
+
+    Media sound = new Media(new File(musicFile).toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(sound);
+    mediaPlayer.play();
+  }
+
+  static void playThudSoundShort() {
+    String musicFile = "src/main/resources/vine_boom_short.wav";
+
+    Media sound = new Media(new File(musicFile).toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(sound);
+    mediaPlayer.play();
+  }
+
+  static void playBackgroundMusic() {
+    String musicFile = "src/main/resources/background_music.mp3";
 
     Media sound = new Media(new File(musicFile).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
