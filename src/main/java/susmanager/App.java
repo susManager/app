@@ -2,6 +2,7 @@ package susmanager;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.Stack;
 import javafx.application.Application;
 import javafx.concurrent.Task;
@@ -32,15 +33,19 @@ public class App extends Application {
       .add(new Image(("file:src/main/resources/susManager_logo.png")));
     stage.setScene(scene);
     stage.show();
-    delay(1000, () -> {
-      try {
-        App.setRoot("login");
-      } catch (IOException e) {
-        e.printStackTrace();
+    Random ran = new Random();
+    long ranNum = ran.nextInt(500, 1500);
+    System.out.println("ranNum: " + ranNum);
+    delay(
+      ranNum,
+      () -> {
+        try {
+          App.setRoot("login");
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
       }
-    }
-);
-
+    );
   }
 
   static void setRoot(String fxml) throws IOException {
@@ -73,13 +78,13 @@ public class App extends Application {
     mediaPlayer.play();
   }
 
-
   public static void delay(long millis, Runnable continuation) {
     Task<Void> sleeper = new Task<Void>() {
       @Override
       protected Void call() throws Exception {
-        try { Thread.sleep(millis); }
-        catch (InterruptedException e) { }
+        try {
+          Thread.sleep(millis);
+        } catch (InterruptedException e) {}
         return null;
       }
     };
