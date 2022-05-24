@@ -36,20 +36,16 @@
     <Text fill="WHITE" layoutX="90.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager vX.X | Build: xxxxxxx" />
     <BorderPane layoutX="235.0" layoutY="183.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
         <center>
-            <ToggleButton mnemonicParsing="false" style="-fx-background-color: #070a1b;" text="On / Off" textFill="WHITE" />
+            <ToggleButton mnemonicParsing="false" onAction="#playAllahMode" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="On" textFill="WHITE" />
         </center>
     </BorderPane>
-    <BorderPane layoutX="235.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
-        <center>
-            <ToggleButton mnemonicParsing="false" onAction="#playBackgroundMusic" style="-fx-background-color: #070a1b;" text="On / Off" textFill="WHITE" />
-        </center>
-    </BorderPane>
+    <BorderPane layoutX="235.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;" />
     <BorderPane layoutX="235.0" layoutY="278.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
-        <center>
-            <ToggleButton mnemonicParsing="false" style="-fx-background-color: #070a1b;" text="On / Off" textFill="WHITE" />
-        </center>
+      <top>
+            <ToggleButton mnemonicParsing="false" onAction="#playNotification" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #070a1b;" text="No ❤" textFill="WHITE" BorderPane.alignment="CENTER" />
+      </top>
     </BorderPane>
-    <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Debug" />
+    <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Allah Mode 🙏" />
     <Text fill="WHITE" layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Background Music" />
     <Text fill="WHITE" layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="allow woman" />
     <BorderPane layoutX="129.0" layoutY="87.943359375" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;">
@@ -61,4 +57,24 @@
             </Text>
         </center>
     </BorderPane>
+   <BorderPane layoutX="278.0" layoutY="183.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+      <center>
+         <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="Off" textFill="WHITE" />
+      </center>
+   </BorderPane>
+   <BorderPane layoutX="235.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+      <center>
+         <ToggleButton mnemonicParsing="false" onAction="#playBackgroundMusic" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="On" textFill="WHITE" />
+      </center>
+   </BorderPane>
+   <BorderPane layoutX="278.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+      <center>
+         <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="Off" textFill="WHITE" />
+      </center>
+   </BorderPane>
+   <ImageView fx:id="trollFace" fitHeight="150.0" fitWidth="200.0" layoutX="85.0" layoutY="309.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../troll_face.png" />
+      </image>
+   </ImageView>
 </Pane>

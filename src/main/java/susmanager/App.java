@@ -33,7 +33,7 @@ public class App extends Application {
     stage.show();
     playThudSoundShort();
     Random ran = new Random();
-    long ranNum = ran.nextInt( 1000) + 500;
+    long ranNum = ran.nextInt(1000) + 500;
     System.out.println("ranNum: " + ranNum);
     delay(
       ranNum,
@@ -85,12 +85,27 @@ public class App extends Application {
     mediaPlayer.play();
   }
 
-  static void playBackgroundMusic() {
-    String musicFile = "src/main/resources/background_music.mp3";
+  static void playNotification() {
+    String musicFile = "src/main/resources/notification_sound.mp3";
 
     Media sound = new Media(new File(musicFile).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
     mediaPlayer.play();
+  }
+
+  static void playAllahMode() {
+    String musicFile = "src/main/resources/allah_mode.mp3";
+
+    Media sound = new Media(new File(musicFile).toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(sound);
+    mediaPlayer.play();
+  }
+
+  static void playBackgroundMusic() {
+    String musicFile = "src/main/resources/background_music.mp3";
+    Media sound = new Media(new File(musicFile).toURI().toString());
+    MediaPlayer mediaPlayerBGM = new MediaPlayer(sound);
+    mediaPlayerBGM.play();
   }
 
   public static void delay(long millis, Runnable continuation) {
