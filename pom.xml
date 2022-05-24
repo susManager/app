@@ -36,6 +36,11 @@
             <systemPath>${basedir}/src/lib/susManager-lib.jar</systemPath>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.googlecode.addjars-maven-plugin</groupId>
+            <artifactId>addjars-maven-plugin</artifactId>
+            <version>1.0.5</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -98,6 +103,25 @@
                     <source>15</source>
                     <target>15</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.googlecode.addjars-maven-plugin</groupId>
+                <artifactId>addjars-maven-plugin</artifactId>
+                <version>1.0.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>add-jars</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/lib</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
