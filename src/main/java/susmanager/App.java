@@ -19,6 +19,8 @@ public class App extends Application {
   private static Scene scene;
   private static Stack<String> fxmlStack;
 
+
+
   @Override
   public void start(Stage stage) throws IOException {
     fxmlStack = new Stack<>();
