@@ -105,7 +105,7 @@ public class App extends Application {
     mediaPlayer.play();
   }
 
-  static void toogleBackgroundMusic() {
+  static void toggleBackgroundMusic() {
     if (isPlaying) {
       musicPlayer.stop();
     } else {
