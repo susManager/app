@@ -20,7 +20,7 @@
                    pickOnBounds="true" preserveRatio="true">
             <Image url="@../susManager_logo.png"/>
         </ImageView>
-        <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager">
+        <Text layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager" styleClass="susmanager">
             <font>
                 <Font name="Segoe UI" size="22.0"/>
             </font>
@@ -34,16 +34,16 @@
         </ImageView>
     </Pane>
     <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#checkPassword" prefHeight="43.0"
-            prefWidth="135.0" style="-fx-background-color: #30b054;" text="Login" textFill="WHITE"/>
+            prefWidth="135.0" text="Login" styleClass="standard-button"/>
     <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="43.0"
-            prefWidth="135.0" style="-fx-background-color: #ba1b1f;" text="Create Account" textFill="WHITE">
+            prefWidth="135.0" text="Create Account" styleClass="extreme-button">
         <font>
             <Font name="Segoe UI" size="10.0"/>
         </font>
     </Button>
     <BorderPane layoutX="67.0" layoutY="102.0" styleClass="login-pane">
         <center>
-            <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login or create an account!">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login or create an account!" styleClass="title">
                 <font>
                     <Font name="Segoe UI" size="18.0"/>
                 </font>
@@ -55,8 +55,8 @@
     </BorderPane>
     <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..." styleClass="login-field"/>
     <Button layoutX="35.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen"
-            prefHeight="25.0" prefWidth="281.0" style="-fx-background-color: #30b054;"
-            text="[DEBUG] Username : DemoUser Password: 1234" textFill="WHITE"/>
+            prefHeight="25.0" prefWidth="281.0"
+            text="[DEBUG] Username : DemoUser Password: 1234" styleClass="standard-button"/>
     <TextField fx:id="login_username" layoutX="101.0" layoutY="211.0" promptText="Enter Username..."
                styleClass="login-field"/>
     <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0"

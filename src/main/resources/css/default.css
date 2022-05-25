@@ -8,6 +8,7 @@
     standard-button-text: WHITE;
     extreme-button-color: #ba1b1f; /* originally #ba1b1f */
     extreme-button-text: WHITE;
+    susmanager-color: WHITE;
 }
 
 .pane {
@@ -15,7 +16,11 @@
 }
 
 .root {
-    -fx-background-color: #050714; /* main background */
+    -fx-background-color: background-color; /* main background */
+}
+
+.susmanager {
+    -fx-fill: susmanager-color;
 }
 
 .textBox {
@@ -50,8 +55,13 @@
     -fx-text-fill: title-color;
 }
 
-.settings-logout {
+.extreme-button {
     -fx-background-color: extreme-button-color;
     -fx-text-fill: extreme-button-text;
     -fx-fill: extreme-button-text;
+}
+
+.standard-button {
+    -fx-background-color: standard-button-color;
+    -fx-text-fill: standard-button-text;
 }
