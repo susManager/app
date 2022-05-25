@@ -40,21 +40,6 @@ public class App extends Application {
     stage.show();
     setupStage(stage);
     playThudSoundShort();
-
-
-    Random ran = new Random();
-    long ranNum = ran.nextInt(1000) + 500;
-    System.out.println("ranNum: " + ranNum);
-    delay(
-      ranNum,
-      () -> {
-        try {
-          App.setRoot("login");
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
-    );
   }
 
   private static void setupStack() {
@@ -143,20 +128,6 @@ public class App extends Application {
       });
     }
     isPlaying = !isPlaying;
-  }
-
-  public static void delay(long millis, Runnable continuation) {
-    Task<Void> sleeper = new Task<>() {
-      @Override
-      protected Void call()  {
-        try {
-          Thread.sleep(millis);
-        } catch (InterruptedException ignored) {}
-        return null;
-      }
-    };
-    sleeper.setOnSucceeded(event -> continuation.run());
-    new Thread(sleeper).start();
   }
 
   public static void main(String[] args) {

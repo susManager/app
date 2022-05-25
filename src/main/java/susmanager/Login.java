@@ -53,6 +53,7 @@ public class Login {
         throw e;
       }
     } catch (Exception e) {
+      System.out.println(e.getMessage());
     }
     wrong_password_or_username.setOpacity(1);
   }
