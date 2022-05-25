@@ -10,7 +10,7 @@
         <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
             <Image url="@../susManager_logo.png" />
         </ImageView>
-        <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="susManager">
+        <Text layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="susmanager" text="susManager">
             <font>
                 <Font name="Segoe UI" size="22.0" />
             </font>

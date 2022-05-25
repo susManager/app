@@ -1,14 +1,14 @@
 * {
     border-color: #FFaaFF; /* originally #7030a0 */
-    background-color: #070a1b;
-    text-color: WHITE;
-    title-color: WHITE;
-    button-text: WHITE;
+    background-color: #FFFFFF;
+    text-color: BLACK;
+    title-color: BLACK;
+    button-text: BLACK;
     standard-button-color: #30b054;
-    standard-button-text: WHITE;
+    standard-button-text: BLACK;
     extreme-button-color: #ba1b1f; /* originally #ba1b1f */
-    extreme-button-text: WHITE;
-    susmanager-color: WHITE;
+    extreme-button-text: BLACK;
+    susmanager-color: #ffaaff;
 }
 
 .pane {
@@ -53,6 +53,23 @@
     -fx-border-color: border-color;
     -fx-background-color: background-color;
     -fx-text-fill: title-color;
+}
+
+.main-field {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+    -fx-text-fill: text-color;
+}
+
+.main-pane {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+    -fx-text-fill: text-color;
+}
+
+.main-img {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
 }
 
 .extreme-button {

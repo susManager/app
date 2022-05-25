@@ -37,6 +37,7 @@ public class App extends Application {
     scene.getStylesheets().add(getTopRes("css/default.css"));
     scene.getStylesheets().add(getTopRes("css/settings.css"));
     scene.getStylesheets().add(getTopRes("css/login.css"));
+    scene.getStylesheets().add(getTopRes("css/main_screen.css"));
   }
 
   private static void setupStack() {
