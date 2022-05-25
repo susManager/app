@@ -1,11 +1,8 @@
 package susmanager;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 import java.util.Stack;
 import javafx.application.Application;
-import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -31,15 +28,17 @@ public class App extends Application {
     fxmlStack.push("splash_screen");
     setupStack();
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
-    stage.setResizable(false);
-    stage.setTitle("susManager");
-    stage
-            .getIcons()
-            .add(new Image(("file:src/main/resources/susManager_logo.png")));
-    stage.setScene(scene);
-    stage.show();
+    loadCSS();
     setupStage(stage);
     playThudSoundShort();
+  }
+
+  private static void loadCSS() {
+    scene.getStylesheets().add(getTopRes("css/default.css"));
+    scene.getStylesheets().add(getTopRes("css/settings.css"));
+    scene.getStylesheets().add(getTopRes("css/login.css"));
+    scene.getStylesheets().add(getTopRes("css/main_screen.css"));
+    scene.getStylesheets().add(getTopRes("css/add_pwd.css"));
   }
 
   private static void setupStack() {

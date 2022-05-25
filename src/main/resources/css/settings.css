@@ -1,0 +1,12 @@
+.settings-field-title {
+    -fx-border-width: 3;
+    -fx-border-radius: 15;
+    -fx-border-insets: -15;
+    -fx-background-insets: -15;
+}
+
+.settings-field {
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-border-insets: -3;
+}

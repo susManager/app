@@ -1,0 +1,101 @@
+* {
+    border-color: #7030a0; /* originally #7030a0 */
+    background-color: #070a1b;
+    text-color: WHITE;
+    title-color: WHITE;
+    button-text: WHITE;
+    standard-button-color: #30b054;
+    standard-button-text: WHITE;
+    extreme-button-color: #ba1b1f; /* originally #ba1b1f */
+    extreme-button-text: WHITE;
+    susmanager-color: WHITE;
+}
+
+.pane {
+    -fx-background-color: #1f1543; /* top bar */
+}
+
+.root {
+    -fx-background-color: background-color; /* main background */
+}
+
+.susmanager {
+    -fx-fill: susmanager-color;
+}
+
+.splash-pane {
+    -fx-background-color: #1f1543;
+    -fx-border-color: border-color;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+
+.textBox {
+    -fx-text-fill: text-color;
+    -fx-fill: text-color;
+}
+
+.title {
+    -fx-text-fill: title-color;
+    -fx-fill: title-color;
+}
+
+.login-pane {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+}
+
+.login-field {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-text-fill: text-color;
+}
+.settings-field {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-text-fill: text-color;
+}
+
+.settings-field-title {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-text-fill: title-color;
+}
+
+.main-field {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+    -fx-text-fill: text-color;
+}
+
+.main-pane {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+    -fx-text-fill: text-color;
+}
+
+.main-img {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+}
+
+.add-pwd-entry {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+    -fx-text-fill: text-color;
+}
+
+.add-pwd-pane {
+    -fx-border-color: border-color;
+}
+
+.extreme-button {
+    -fx-background-color: extreme-button-color;
+    -fx-text-fill: extreme-button-text;
+    -fx-fill: extreme-button-text;
+}
+
+.standard-button {
+    -fx-background-color: standard-button-color;
+    -fx-text-fill: standard-button-text;
+}
