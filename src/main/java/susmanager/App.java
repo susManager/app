@@ -29,15 +29,19 @@ public class App extends Application {
     setupAudio();
     fxmlStack = new Stack<>();
     fxmlStack.push("splash_screen");
+    setupStack();
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
     stage.setResizable(false);
     stage.setTitle("susManager");
     stage
-      .getIcons()
-      .add(new Image(("file:src/main/resources/susManager_logo.png")));
+            .getIcons()
+            .add(new Image(("file:src/main/resources/susManager_logo.png")));
     stage.setScene(scene);
     stage.show();
+    setupStage(stage);
     playThudSoundShort();
+
+
     Random ran = new Random();
     long ranNum = ran.nextInt(1000) + 500;
     System.out.println("ranNum: " + ranNum);
@@ -53,6 +57,18 @@ public class App extends Application {
     );
   }
 
+  private static void setupStack() {
+    fxmlStack = new Stack<>();
+    fxmlStack.push("splash_screen");
+  }
+
+  private static void setupStage(Stage stage) {
+    stage.setResizable(false);
+    stage.setTitle("susManager");
+    stage.getIcons().add(new Image(("file:src/main/resources/susManager_logo.png")));
+    stage.setScene(scene);
+    stage.show();
+  }
 
   private static void setupAudio() {
     String musicFile = "src/main/resources/background_music.mp3";
@@ -130,12 +146,12 @@ public class App extends Application {
   }
 
   public static void delay(long millis, Runnable continuation) {
-    Task<Void> sleeper = new Task<Void>() {
+    Task<Void> sleeper = new Task<>() {
       @Override
-      protected Void call() throws Exception {
+      protected Void call()  {
         try {
           Thread.sleep(millis);
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException ignored) {}
         return null;
       }
     };
