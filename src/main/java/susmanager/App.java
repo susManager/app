@@ -56,9 +56,7 @@ public class App extends Application {
   }
 
   private static void setupAudio() {
-    String musicFile = "src/main/resources/background_music.mp3";
-
-    Media sound = new Media(new File(musicFile).toURI().toString());
+    Media sound = new Media(getTopRes("background_music.mp3"));
     musicPlayer = new MediaPlayer(sound);
     isPlaying = false;
   }
@@ -66,6 +64,10 @@ public class App extends Application {
   static void setRoot(String fxml) throws IOException {
     fxmlStack.push(fxml);
     scene.setRoot(loadFXML(fxml));
+  }
+
+  private static String getTopRes(String name) {
+    return App.class.getResource("/" + name).toString();
   }
 
   /**
@@ -86,33 +88,25 @@ public class App extends Application {
   }
 
   static void playThudSound() {
-    String musicFile = "src/main/resources/vine_boom.wav";
-
-    Media sound = new Media(new File(musicFile).toURI().toString());
+    Media sound = new Media(getTopRes("vine_boom.wav"));
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
     mediaPlayer.play();
   }
 
   static void playThudSoundShort() {
-    String musicFile = "src/main/resources/vine_boom_short.wav";
-
-    Media sound = new Media(new File(musicFile).toURI().toString());
+    Media sound = new Media(getTopRes("vine_boom_short.wav"));
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
     mediaPlayer.play();
   }
 
   static void playNotification() {
-    String musicFile = "src/main/resources/notification_sound.mp3";
-
-    Media sound = new Media(new File(musicFile).toURI().toString());
+    Media sound = new Media(getTopRes("notification_sound.mp3"));
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
     mediaPlayer.play();
   }
 
   static void playAllahMode() {
-    String musicFile = "src/main/resources/allah_mode.mp3";
-
-    Media sound = new Media(new File(musicFile).toURI().toString());
+    Media sound = new Media(getTopRes("allah_mode.mp3"));
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
     mediaPlayer.play();
   }
