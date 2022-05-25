@@ -26,6 +26,9 @@ public class MainScreen implements Initializable {
   private ImageView nothing_found;
 
   @FXML
+  private ImageView allah;
+
+  @FXML
   private TextField searchBar1;
 
   /**
@@ -64,15 +67,12 @@ public class MainScreen implements Initializable {
   }
 
   private List<Entry> searchList(String searchWords, List<Entry> results) {
+    allah.setOpacity(0);
     nothing_found.setOpacity(0);
 
     List<String> searchWordsArray = Arrays.asList(
       searchWords.trim().split(" ")
     );
-
-    if (searchWords.equals("allah")) {
-      App.playAllahMode();
-    }
 
     results =
       results
@@ -90,6 +90,10 @@ public class MainScreen implements Initializable {
 
     if (results.size() == 0) {
       nothing_found.setOpacity(1);
+    }
+    if (searchWords.equals("allah")) {
+      App.playAllahMode();
+      allah.setOpacity(1);
     }
     return results;
   }
