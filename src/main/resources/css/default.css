@@ -1,0 +1,7 @@
+.pane {
+    -fx-background-color: #1f1543; /* top bar */
+}
+
+.root {
+    -fx-background-color: #050714; /* main background */
+}

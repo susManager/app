@@ -31,13 +31,7 @@ public class App extends Application {
     fxmlStack.push("splash_screen");
     setupStack();
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
-    stage.setResizable(false);
-    stage.setTitle("susManager");
-    stage
-            .getIcons()
-            .add(new Image(("file:src/main/resources/susManager_logo.png")));
-    stage.setScene(scene);
-    stage.show();
+    scene.getStylesheets().add(getTopRes("css/default.css"));
     setupStage(stage);
     playThudSoundShort();
   }
