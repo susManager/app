@@ -1,14 +1,14 @@
 * {
-    border-color: #FFaaFF; /* originally #7030a0 */
-    background-color: #FFFFFF;
-    text-color: BLACK;
-    title-color: BLACK;
-    button-text: BLACK;
+    border-color: #7030a0; /* originally #7030a0 */
+    background-color: #070a1b;
+    text-color: WHITE;
+    title-color: WHITE;
+    button-text: WHITE;
     standard-button-color: #30b054;
-    standard-button-text: BLACK;
+    standard-button-text: WHITE;
     extreme-button-color: #ba1b1f; /* originally #ba1b1f */
-    extreme-button-text: BLACK;
-    susmanager-color: #ffaaff;
+    extreme-button-text: WHITE;
+    susmanager-color: WHITE;
 }
 
 .pane {
@@ -69,6 +69,16 @@
 
 .main-img {
     -fx-background-color: background-color;
+    -fx-border-color: border-color;
+}
+
+.add-pwd-entry {
+    -fx-background-color: background-color;
+    -fx-border-color: border-color;
+    -fx-text-fill: text-color;
+}
+
+.add-pwd-pane {
     -fx-border-color: border-color;
 }
 

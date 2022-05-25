@@ -38,6 +38,7 @@ public class App extends Application {
     scene.getStylesheets().add(getTopRes("css/settings.css"));
     scene.getStylesheets().add(getTopRes("css/login.css"));
     scene.getStylesheets().add(getTopRes("css/main_screen.css"));
+    scene.getStylesheets().add(getTopRes("css/add_pwd.css"));
   }
 
   private static void setupStack() {

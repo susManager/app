@@ -1,0 +1,13 @@
+.add-pwd-entry {
+    -fx-border-width: 3;
+    -fx-border-radius: 8;
+    -fx-border-insets: -15;
+    -fx-background-insets: -15;
+}
+
+.add-pwd-pane {
+    -fx-border-width: 3;
+    -fx-border-radius: 20;
+    -fx-border-insets: -20;
+    -fx-background-insets: -20;
+}
