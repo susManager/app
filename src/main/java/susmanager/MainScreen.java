@@ -70,6 +70,10 @@ public class MainScreen implements Initializable {
       searchWords.trim().split(" ")
     );
 
+    if (searchWords.equals("allah")) {
+      App.playAllahMode();
+    }
+
     results =
       results
         .stream()
