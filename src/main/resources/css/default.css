@@ -1,5 +1,5 @@
 * {
-    border-color: #FFaaFF;
+    border-color: #FFaaFF; /* originally #7030a0 */
     background-color: #070a1b;
 }
 
@@ -12,20 +12,38 @@
 }
 
 .login-pane {
-    -fx-border-width: 3;
     -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-border-width: 3;
     -fx-border-radius: 15;
     -fx-border-insets: -15;
-    -fx-background-color: background-color;
     -fx-background-insets: -15;
 }
 
-.login-field {
-    -fx-border-width: 3;
+.settings-field {
     -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-border-insets: -3;
+}
+
+.login-field {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-border-width: 3;
     -fx-border-radius: 8;
     -fx-border-insets: -15;
-    -fx-background-color: background-color;
     -fx-background-insets: -15;
     -fx-text-fill: white;
+}
+
+
+.settings-field-title {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-border-width: 3;
+    -fx-border-radius: 15;
+    -fx-border-insets: -15;
+    -fx-background-insets: -15;
 }

@@ -1,11 +1,8 @@
 package susmanager;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 import java.util.Stack;
 import javafx.application.Application;
-import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

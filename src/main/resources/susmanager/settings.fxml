@@ -34,21 +34,21 @@
         </font>
     </Button>
     <Text fill="WHITE" layoutX="90.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager vX.X | Build: xxxxxxx" />
-    <BorderPane layoutX="235.0" layoutY="183.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+    <BorderPane layoutX="235.0" layoutY="183.0" styleClass="settings-field">
         <center>
-            <ToggleButton mnemonicParsing="false" onAction="#playAllahMode" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="On" textFill="WHITE" />
+            <ToggleButton mnemonicParsing="false" onAction="#playAllahMode" prefHeight="25.0" prefWidth="34.0" styleClass="settings-field" text="On" textFill="WHITE" />
         </center>
     </BorderPane>
-    <BorderPane layoutX="235.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;" />
-    <BorderPane layoutX="235.0" layoutY="278.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+    <BorderPane layoutX="235.0" layoutY="231.0" styleClass="settings-field" />
+    <BorderPane layoutX="235.0" layoutY="278.0" styleClass="settings-field">
       <top>
-            <ToggleButton mnemonicParsing="false" onAction="#playNotification" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #070a1b;" text="No ❤" textFill="WHITE" BorderPane.alignment="CENTER" />
+            <ToggleButton mnemonicParsing="false" onAction="#playNotification" prefHeight="25.0" prefWidth="78.0" styleClass="settings-field" text="No ❤" textFill="WHITE" BorderPane.alignment="CENTER" />
       </top>
     </BorderPane>
     <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Allah Mode 🙏" />
     <Text fill="WHITE" layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Background Music" />
     <Text fill="WHITE" layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="allow woman" />
-    <BorderPane layoutX="129.0" layoutY="87.943359375" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;">
+    <BorderPane layoutX="129.0" layoutY="87.943359375" styleClass="settings-field-title">
         <center>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
                 <font>
@@ -57,17 +57,17 @@
             </Text>
         </center>
     </BorderPane>
-   <BorderPane layoutX="278.0" layoutY="183.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+   <BorderPane layoutX="278.0" layoutY="183.0" styleClass="settings-field">
       <center>
          <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="Off" textFill="WHITE" />
       </center>
    </BorderPane>
-   <BorderPane layoutX="235.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+   <BorderPane layoutX="235.0" layoutY="231.0" styleClass="settings-field">
       <center>
          <ToggleButton mnemonicParsing="false" onAction="#playBackgroundMusic" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="On" textFill="WHITE" />
       </center>
    </BorderPane>
-   <BorderPane layoutX="278.0" layoutY="231.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+   <BorderPane layoutX="278.0" layoutY="231.0" styleClass="settings-field">
       <center>
          <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="Off" textFill="WHITE" />
       </center>
@@ -78,12 +78,12 @@
       </image>
    </ImageView>
    <Text fill="WHITE" layoutX="56.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color Theme" />
-   <BorderPane layoutX="235.0" layoutY="322.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+   <BorderPane layoutX="235.0" layoutY="322.0" styleClass="settings-field">
       <center>
          <ToggleButton mnemonicParsing="false" onAction="#color_switchToDefault" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #070a1b;" text="Default" textFill="WHITE" />
       </center>
    </BorderPane>
-   <BorderPane layoutX="234.0" layoutY="354.0" style="-fx-border-width: 2; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -3;">
+   <BorderPane layoutX="234.0" layoutY="354.0" styleClass="settings-field">
       <center>
          <ToggleButton mnemonicParsing="false" onAction="#color_switchToNord" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #070a1b;" text="Nord" textFill="WHITE" />
       </center>
