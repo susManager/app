@@ -1,8 +1,14 @@
 package susmanager;
 
 import java.io.IOException;
+import java.util.List;
+
+import fundur.systems.lib.Entry;
+import fundur.systems.lib.Manager;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+
+import javax.crypto.BadPaddingException;
 
 public class Login {
 
@@ -33,11 +39,20 @@ public class Login {
     account_created.setOpacity(0);
     no_username_entered.setOpacity(0);
 
-    if (login_username.getText().equals("DemoUser")) {
-      if (login_pwd.getText().equals("1234")) {
-        System.out.println("right password / username");
-        switchToMainScreen();
+    String hashUser = login_username.getText();
+    try {
+      List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
+      MainScreen.setupPasswords(list);
+      switchToMainScreen();
+    } catch (BadPaddingException _ignored) {
+      wrong_password_or_username.setOpacity(1);
+    } catch (NumberFormatException e) {
+      if (e.getMessage().equals("For input string: \"nothing found\"")) {
+        System.out.println("user not found");
+      } else {
+        throw e;
       }
+    } catch (Exception e) {
     }
     wrong_password_or_username.setOpacity(1);
   }

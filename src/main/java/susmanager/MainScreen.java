@@ -105,6 +105,10 @@ public class MainScreen implements Initializable {
       );
   }
 
+  public static void setupPasswords(List<Entry> list) {
+    pass = new ArrayList<>(list);
+  }
+
   public static void addPassword(Entry newEntry) {
     pass.add(newEntry);
   }
