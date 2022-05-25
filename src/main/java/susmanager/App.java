@@ -13,16 +13,20 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class App extends Application {
 
   private static Scene scene;
   private static Stack<String> fxmlStack;
 
+  private static MediaPlayer musicPlayer;
+  private static boolean isPlaying;
 
 
   @Override
   public void start(Stage stage) throws IOException {
+    setupAudio();
     fxmlStack = new Stack<>();
     fxmlStack.push("splash_screen");
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
@@ -47,6 +51,15 @@ public class App extends Application {
         }
       }
     );
+  }
+
+
+  private static void setupAudio() {
+    String musicFile = "src/main/resources/background_music.mp3";
+
+    Media sound = new Media(new File(musicFile).toURI().toString());
+    musicPlayer = new MediaPlayer(sound);
+    isPlaying = false;
   }
 
   static void setRoot(String fxml) throws IOException {
@@ -103,11 +116,17 @@ public class App extends Application {
     mediaPlayer.play();
   }
 
-  static void playBackgroundMusic() {
-    String musicFile = "src/main/resources/background_music.mp3";
-    Media sound = new Media(new File(musicFile).toURI().toString());
-    MediaPlayer mediaPlayerBGM = new MediaPlayer(sound);
-    mediaPlayerBGM.play();
+  static void toggleBackgroundMusic() {
+    if (isPlaying) {
+      musicPlayer.stop();
+    } else {
+      musicPlayer.play();
+      musicPlayer.setOnEndOfMedia(() -> {
+        musicPlayer.seek(Duration.ZERO);
+        musicPlayer.play();
+      });
+    }
+    isPlaying = !isPlaying;
   }
 
   public static void delay(long millis, Runnable continuation) {

@@ -16,7 +16,7 @@ public class Settings {
 
   @FXML
   private void playBackgroundMusic() {
-    App.playBackgroundMusic();
+    App.toggleBackgroundMusic();
   }
 
   @FXML
