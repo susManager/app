@@ -1,0 +1,14 @@
+.login-field {
+    -fx-border-width: 3;
+    -fx-border-radius: 8;
+    -fx-border-insets: -15;
+    -fx-background-insets: -15;
+    -fx-text-fill: white;
+}
+
+.login-pane {
+    -fx-border-width: 3;
+    -fx-border-radius: 15;
+    -fx-border-insets: -15;
+    -fx-background-insets: -15;
+}

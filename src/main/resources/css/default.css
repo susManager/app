@@ -1,6 +1,13 @@
 * {
     border-color: #FFaaFF; /* originally #7030a0 */
     background-color: #070a1b;
+    text-color: WHITE;
+    title-color: WHITE;
+    button-text: WHITE;
+    standard-button-color: #30b054;
+    standard-button-text: WHITE;
+    extreme-button-color: #ba1b1f; /* originally #ba1b1f */
+    extreme-button-text: WHITE;
 }
 
 .pane {
@@ -11,39 +18,40 @@
     -fx-background-color: #050714; /* main background */
 }
 
+.textBox {
+    -fx-text-fill: text-color;
+    -fx-fill: text-color;
+}
+
+.title {
+    -fx-text-fill: title-color;
+    -fx-fill: title-color;
+}
+
 .login-pane {
     -fx-border-color: border-color;
     -fx-background-color: background-color;
-    -fx-border-width: 3;
-    -fx-border-radius: 15;
-    -fx-border-insets: -15;
-    -fx-background-insets: -15;
-}
-
-.settings-field {
-    -fx-border-color: border-color;
-    -fx-background-color: background-color;
-    -fx-border-width: 2;
-    -fx-border-radius: 8;
-    -fx-border-insets: -3;
 }
 
 .login-field {
     -fx-border-color: border-color;
     -fx-background-color: background-color;
-    -fx-border-width: 3;
-    -fx-border-radius: 8;
-    -fx-border-insets: -15;
-    -fx-background-insets: -15;
-    -fx-text-fill: white;
+    -fx-text-fill: text-color;
 }
-
+.settings-field {
+    -fx-border-color: border-color;
+    -fx-background-color: background-color;
+    -fx-text-fill: text-color;
+}
 
 .settings-field-title {
     -fx-border-color: border-color;
     -fx-background-color: background-color;
-    -fx-border-width: 3;
-    -fx-border-radius: 15;
-    -fx-border-insets: -15;
-    -fx-background-insets: -15;
+    -fx-text-fill: title-color;
+}
+
+.settings-logout {
+    -fx-background-color: extreme-button-color;
+    -fx-text-fill: extreme-button-text;
+    -fx-fill: extreme-button-text;
 }

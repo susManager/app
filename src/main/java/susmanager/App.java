@@ -28,9 +28,15 @@ public class App extends Application {
     fxmlStack.push("splash_screen");
     setupStack();
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
-    scene.getStylesheets().add(getTopRes("css/default.css"));
+    loadCSS();
     setupStage(stage);
     playThudSoundShort();
+  }
+
+  private static void loadCSS() {
+    scene.getStylesheets().add(getTopRes("css/default.css"));
+    scene.getStylesheets().add(getTopRes("css/settings.css"));
+    scene.getStylesheets().add(getTopRes("css/login.css"));
   }
 
   private static void setupStack() {

@@ -1,39 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="settings_background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="root" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.Settings">
+<Pane fx:id="settings_background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="root" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.Settings">
     <Pane fx:id="title_banner" prefHeight="50.0" prefWidth="350.0" styleClass="pane">
         <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
             <Image url="@../susManager_logo.png" />
         </ImageView>
-        <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager">
+        <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="susManager">
             <font>
                 <Font name="Segoe UI" size="22.0" />
             </font>
         </Text>
-        <Button layoutX="282.0" layoutY="10.0" minWidth="32.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="32.0" text="back">
-            <font>
-                <Font size="1.0" />
-            </font>
-        </Button>
         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchBack" pickOnBounds="true" preserveRatio="true">
             <Image url="@../arrow_forward.png" />
         </ImageView>
     </Pane>
-    <Button layoutX="108.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#switchToLogin" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #ba1b1f;" text="Logout" textFill="WHITE">
+    <Button layoutX="108.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#switchToLogin" prefHeight="43.0" prefWidth="135.0" styleClass="settings-logout" text="Logout">
         <font>
             <Font name="Segoe UI" size="10.0" />
         </font>
     </Button>
-    <Text fill="WHITE" layoutX="90.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager vX.X | Build: xxxxxxx" />
+    <Text fill="WHITE" layoutX="90.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="susManager vX.X | Build: xxxxxxx" />
     <BorderPane layoutX="235.0" layoutY="183.0" styleClass="settings-field">
         <center>
             <ToggleButton mnemonicParsing="false" onAction="#playAllahMode" prefHeight="25.0" prefWidth="34.0" styleClass="settings-field" text="On" textFill="WHITE" />
@@ -45,12 +36,12 @@
             <ToggleButton mnemonicParsing="false" onAction="#playNotification" prefHeight="25.0" prefWidth="78.0" styleClass="settings-field" text="No ❤" textFill="WHITE" BorderPane.alignment="CENTER" />
       </top>
     </BorderPane>
-    <Text fill="WHITE" layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Allah Mode 🙏" />
-    <Text fill="WHITE" layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="enable Background Music" />
-    <Text fill="WHITE" layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="allow woman" />
+    <Text layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="enable Allah Mode 🙏" />
+    <Text layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="enable Background Music" />
+    <Text layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="allow woman" />
     <BorderPane layoutX="129.0" layoutY="87.943359375" styleClass="settings-field-title">
         <center>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Settings">
                 <font>
                     <Font size="26.0" />
                 </font>
@@ -59,33 +50,31 @@
     </BorderPane>
    <BorderPane layoutX="278.0" layoutY="183.0" styleClass="settings-field">
       <center>
-         <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="Off" textFill="WHITE" />
+         <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" styleClass="settings-field" text="Off" />
       </center>
    </BorderPane>
    <BorderPane layoutX="235.0" layoutY="231.0" styleClass="settings-field">
       <center>
-         <ToggleButton mnemonicParsing="false" onAction="#playBackgroundMusic" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="On" textFill="WHITE" />
+         <ToggleButton mnemonicParsing="false" onAction="#playBackgroundMusic" prefHeight="25.0" prefWidth="34.0" styleClass="settings-field" text="On" />
       </center>
    </BorderPane>
    <BorderPane layoutX="278.0" layoutY="231.0" styleClass="settings-field">
       <center>
-         <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: #070a1b;" text="Off" textFill="WHITE" />
+         <ToggleButton mnemonicParsing="false" onAction="#turnOff" prefHeight="25.0" prefWidth="34.0" styleClass="settings-field" text="Off" />
       </center>
    </BorderPane>
-   <ImageView fx:id="trollFace" fitHeight="150.0" fitWidth="200.0" layoutX="85.0" layoutY="309.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../troll_face.png" />
-      </image>
-   </ImageView>
-   <Text fill="WHITE" layoutX="56.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Color Theme" />
+    <ImageView fx:id="trollFace" fitHeight="150.0" fitWidth="200.0" layoutX="85.0" layoutY="309.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../troll_face.png" />
+    </ImageView>
+   <Text layoutX="56.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="Color Theme" />
    <BorderPane layoutX="235.0" layoutY="322.0" styleClass="settings-field">
       <center>
-         <ToggleButton mnemonicParsing="false" onAction="#color_switchToDefault" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #070a1b;" text="Default" textFill="WHITE" />
+         <ToggleButton mnemonicParsing="false" onAction="#color_switchToDefault" prefHeight="25.0" prefWidth="80.0" styleClass="settings-field" text="Default" />
       </center>
    </BorderPane>
    <BorderPane layoutX="234.0" layoutY="354.0" styleClass="settings-field">
       <center>
-         <ToggleButton mnemonicParsing="false" onAction="#color_switchToNord" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #070a1b;" text="Nord" textFill="WHITE" />
+         <ToggleButton mnemonicParsing="false" onAction="#color_switchToNord" prefHeight="25.0" prefWidth="80.0" styleClass="settings-field" text="Nord" />
       </center>
    </BorderPane>
 </Pane>
