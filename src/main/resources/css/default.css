@@ -1,7 +1,31 @@
+* {
+    border-color: #FFaaFF;
+    background-color: #070a1b;
+}
+
 .pane {
     -fx-background-color: #1f1543; /* top bar */
 }
 
 .root {
     -fx-background-color: #050714; /* main background */
+}
+
+.login-pane {
+    -fx-border-width: 3;
+    -fx-border-color: border-color;
+    -fx-border-radius: 15;
+    -fx-border-insets: -15;
+    -fx-background-color: background-color;
+    -fx-background-insets: -15;
+}
+
+.login-field {
+    -fx-border-width: 3;
+    -fx-border-color: border-color;
+    -fx-border-radius: 8;
+    -fx-border-insets: -15;
+    -fx-background-color: background-color;
+    -fx-background-insets: -15;
+    -fx-text-fill: white;
 }

@@ -41,8 +41,7 @@
             <Font name="Segoe UI" size="10.0"/>
         </font>
     </Button>
-    <BorderPane layoutX="67.0" layoutY="102.0"
-                style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 15; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15;">
+    <BorderPane layoutX="67.0" layoutY="102.0" styleClass="login-pane">
         <center>
             <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login or create an account!">
                 <font>
@@ -54,13 +53,12 @@
             <Glow/>
         </effect>
     </BorderPane>
-    <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..."
-                   style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;"/>
+    <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..." styleClass="login-field"/>
     <Button layoutX="35.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen"
             prefHeight="25.0" prefWidth="281.0" style="-fx-background-color: #30b054;"
             text="[DEBUG] Username : DemoUser Password: 1234" textFill="WHITE"/>
     <TextField fx:id="login_username" layoutX="101.0" layoutY="211.0" promptText="Enter Username..."
-               style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -15; -fx-background-color: #070a1b; -fx-background-insets: -15; -fx-text-fill: white;"/>
+               styleClass="login-field"/>
     <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0"
                prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: #050714;"
                text="Either wrong Password or Username!"/>
