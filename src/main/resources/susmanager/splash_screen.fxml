@@ -11,7 +11,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="root" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.SplashScreen">
     <BorderPane layoutX="106.0" layoutY="229.0" styleClass="root">
         <center>
-            <Pane fx:id="logo" prefHeight="92.0" prefWidth="139.0" style="-fx-background-color: #1f1543;">
+            <Pane fx:id="logo" prefHeight="92.0" prefWidth="139.0" styleClass="splash-pane">
                 <ImageView  fitHeight="32.0" fitWidth="39.0" layoutX="54.0" layoutY="14.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../susManager_logo.png" />
                 </ImageView>

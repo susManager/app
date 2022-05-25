@@ -23,6 +23,13 @@
     -fx-fill: susmanager-color;
 }
 
+.splash-pane {
+    -fx-background-color: #1f1543;
+    -fx-border-color: border-color;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+
 .textBox {
     -fx-text-fill: text-color;
     -fx-fill: text-color;
