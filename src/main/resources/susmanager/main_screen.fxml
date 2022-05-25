@@ -10,36 +10,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
-      prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.MainScreen">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" style="-fx-background-color: #050714;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.MainScreen">
    <Pane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #1f1543;">
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings"
-                 pickOnBounds="true" preserveRatio="true">
-         <Image url="@../settings_icon.png"/>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../settings_icon.png" />
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound"
-                 pickOnBounds="true" preserveRatio="true">
-         <Image url="@../susManager_logo.png"/>
+      <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../susManager_logo.png" />
       </ImageView>
       <Text fill="WHITE" layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager">
          <font>
-            <Font name="Segoe UI" size="22.0"/>
+            <Font name="Segoe UI" size="22.0" />
          </font>
       </Text>
    </Pane>
-   <Button layoutX="76.0" layoutY="499.0" mnemonicParsing="false" onAction="#switchToAddPassword" prefHeight="43.0"
-           prefWidth="200.0" style="-fx-background-color: #30b054;" text="ADD PASSWORD" textFill="WHITE"/>
-   <TextField fx:id="searchBar1" layoutX="71.0" layoutY="68.0" onAction="#search" onKeyPressed="#search"
-              prefHeight="25.0" prefWidth="214.0" promptText="Search for Passwords..."
-              style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 10; -fx-border-insets: -10; -fx-background-color: #070a1b; -fx-background-insets: -10; -fx-text-fill: white;"/>
-   <ScrollPane layoutX="26.0" layoutY="114.0"
-               style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -5; -fx-background-color: #070a1b; -fx-background-insets: -5;">
-      <ListView fx:id="listView1" prefHeight="369.0" prefWidth="297.0"
-                style="-fx-text-fill: white; -fx-background-color: null;"/>
+   <Button layoutX="76.0" layoutY="499.0" mnemonicParsing="false" onAction="#switchToAddPassword" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #30b054;" text="ADD PASSWORD" textFill="WHITE" />
+   <TextField fx:id="searchBar1" layoutX="71.0" layoutY="68.0" onAction="#search" onKeyPressed="#search" prefHeight="25.0" prefWidth="214.0" promptText="Search for Passwords..." style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 10; -fx-border-insets: -10; -fx-background-color: #070a1b; -fx-background-insets: -10; -fx-text-fill: white;" />
+   <ScrollPane layoutX="26.0" layoutY="114.0" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -5; -fx-background-color: #070a1b; -fx-background-insets: -5;">
+      <ListView fx:id="listView1" prefHeight="369.0" prefWidth="297.0" style="-fx-text-fill: white; -fx-background-color: null;" />
    </ScrollPane>
-   <ImageView fx:id="nothing_found" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0"
-              style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -5; -fx-background-color: #070a1b; -fx-background-insets: -5;">
-      <Image url="@../nothing_found_2.png"/>
+   <ImageView fx:id="nothing_found" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -5; -fx-background-color: #070a1b; -fx-background-insets: -5;">
+      <Image url="@../nothing_found_2.png" />
+   </ImageView>
+   <ImageView fx:id="allah" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0" style="-fx-border-width: 3; -fx-border-color: #7030a0; -fx-border-radius: 8; -fx-border-insets: -5; -fx-background-color: #070a1b; -fx-background-insets: -5;">
+      <image>
+         <Image url="@../mekka.png" />
+      </image>
    </ImageView>
 </Pane>
