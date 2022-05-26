@@ -20,6 +20,8 @@ public class App extends Application {
   private static MediaPlayer musicPlayer;
   private static boolean isPlaying;
 
+  private static String currentTheme = "";
+
 
   @Override
   public void start(Stage stage) throws IOException {
@@ -34,11 +36,24 @@ public class App extends Application {
   }
 
   private static void loadCSS() {
-    scene.getStylesheets().add(getTopRes("css/default.css"));
+    scene.getStylesheets().add(getTopRes("css/theming.css"));
     scene.getStylesheets().add(getTopRes("css/settings.css"));
     scene.getStylesheets().add(getTopRes("css/login.css"));
     scene.getStylesheets().add(getTopRes("css/main_screen.css"));
     scene.getStylesheets().add(getTopRes("css/add_pwd.css"));
+    loadTheme("standard");
+    System.out.println(scene.getStylesheets());
+  }
+
+  public static void loadTheme (String name) {
+    String newTheme = getTopRes("css/themes/" + name + ".css");
+    if (newTheme == null || newTheme.isEmpty()) {
+      System.out.println("Theme " + name + " not found!");
+    } else {
+      scene.getStylesheets().add(newTheme);
+      scene.getStylesheets().removeAll(currentTheme);
+      currentTheme = newTheme;
+    }
   }
 
   private static void setupStack() {
