@@ -1,14 +1,13 @@
 package susmanager;
 
-import java.io.IOException;
-import java.util.List;
-
 import fundur.systems.lib.Entry;
 import fundur.systems.lib.Manager;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 import javax.crypto.BadPaddingException;
+import java.io.IOException;
+import java.util.List;
 
 public class Login {
 
@@ -33,13 +32,12 @@ public class Login {
   }
 
   @FXML
-  private void checkPassword() throws IOException {
+  private void checkPassword() {
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);
     account_created.setOpacity(0);
     no_username_entered.setOpacity(0);
 
-    String hashUser = login_username.getText();
     try {
       List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
       MainScreen.setupPasswords(list);

@@ -1,9 +1,10 @@
 package susmanager;
 
 import fundur.systems.lib.Entry;
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class AddPassword {
 

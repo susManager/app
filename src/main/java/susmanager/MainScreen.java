@@ -1,6 +1,13 @@
 package susmanager;
 
 import fundur.systems.lib.Entry;
+import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -8,12 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import javafx.event.Event;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
 public class MainScreen implements Initializable {
 
@@ -78,13 +79,11 @@ public class MainScreen implements Initializable {
       results
         .stream()
         .filter(
-          input -> {
-            return searchWordsArray
-              .stream()
-              .allMatch(
-                word -> input.name().toLowerCase().contains(word.toLowerCase())
-              );
-          }
+          input -> searchWordsArray
+            .stream()
+            .allMatch(
+              word -> input.name().toLowerCase().contains(word.toLowerCase())
+            )
         )
         .collect(Collectors.toList());
 

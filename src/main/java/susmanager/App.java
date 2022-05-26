@@ -1,7 +1,5 @@
 package susmanager;
 
-import java.io.IOException;
-import java.util.Stack;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +9,11 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class App extends Application {
 
@@ -41,7 +44,7 @@ public class App extends Application {
     scene.getStylesheets().add(getTopRes("css/login.css"));
     scene.getStylesheets().add(getTopRes("css/main_screen.css"));
     scene.getStylesheets().add(getTopRes("css/add_pwd.css"));
-    loadTheme("standard");
+    scene.getStylesheets().add(getTopRes("css/themes/default.css"));
   }
 
   public static void loadTheme (String name) {
@@ -49,8 +52,8 @@ public class App extends Application {
     if (newTheme == null || newTheme.isEmpty()) {
       System.out.println("Theme " + name + " not found!");
     } else {
-      scene.getStylesheets().add(newTheme);
       scene.getStylesheets().removeAll(currentTheme);
+      scene.getStylesheets().add(newTheme);
       currentTheme = newTheme;
     }
   }
@@ -117,7 +120,7 @@ public class App extends Application {
   }
 
   static void playAllahMode() {
-    loopSound(new Media(getTopRes("allah_mode.mp3")));
+    playSound(new Media(getTopRes("allah_mode.mp3")));
   }
 
   static void toggleBackgroundMusic() {
