@@ -4,8 +4,6 @@ import javafx.animation.FadeTransition;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -21,9 +19,7 @@ public class SplashScreen implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Random ran = new Random();
-        long ranNum = ran.nextInt(1000) + 500;
-        System.out.println("ranNum: " + ranNum);
-        ranNum = 3000L;
+        long ranNum = ran.nextInt(1000) + 1500;
         FadeTransition fade = new FadeTransition();
         fade.setDuration(Duration.millis(ranNum));
         fade.setFromValue(0.1);
@@ -43,7 +39,7 @@ public class SplashScreen implements Initializable {
     }
 
     @FXML
-    public void playThudSound(MouseEvent ignored) {
+    public void playThudSound() {
         App.playThudSound();
     }
 

@@ -37,9 +37,8 @@
               styleClass="main-img">
       <Image url="@../nothing_found_2.png"/>
    </ImageView>
-   <ImageView fx:id="allah" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0" styleClass="main-img">
-   <image>
-      <Image url="@../mekka.png" />
-   </image>
+   <ImageView fx:id="allah" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0"
+              styleClass="main-img">
+      <Image url="@../mekka.png"/>
    </ImageView>
 </Pane>
