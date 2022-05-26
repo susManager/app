@@ -113,28 +113,36 @@ public class App extends Application {
   }
 
   static void playNotification() {
-    Media sound = new Media(getTopRes("notification_sound.mp3"));
-    MediaPlayer mediaPlayer = new MediaPlayer(sound);
-    mediaPlayer.play();
+    playSound(new Media(getTopRes("notification_sound.mp3")));
   }
 
   static void playAllahMode() {
-    Media sound = new Media(getTopRes("allah_mode.mp3"));
-    MediaPlayer mediaPlayer = new MediaPlayer(sound);
-    mediaPlayer.play();
+    loopSound(new Media(getTopRes("allah_mode.mp3")));
   }
 
   static void toggleBackgroundMusic() {
     if (isPlaying) {
       musicPlayer.stop();
     } else {
-      musicPlayer.play();
-      musicPlayer.setOnEndOfMedia(() -> {
-        musicPlayer.seek(Duration.ZERO);
-        musicPlayer.play();
-      });
+      loopSound(new Media(getTopRes("background_music.mp3")));
     }
     isPlaying = !isPlaying;
+  }
+
+  private static void loopSound(Media sound) {
+    musicPlayer.stop();
+    musicPlayer = new MediaPlayer(sound);
+    musicPlayer.play();
+    musicPlayer.setOnEndOfMedia(() -> {
+      musicPlayer.seek(Duration.ZERO);
+      musicPlayer.play();
+    });
+  }
+
+  private static void playSound (Media sound) {
+    musicPlayer.stop();
+    musicPlayer = new MediaPlayer(sound);
+    musicPlayer.play();
   }
 
   public static void main(String[] args) {
