@@ -42,7 +42,6 @@ public class App extends Application {
     scene.getStylesheets().add(getTopRes("css/main_screen.css"));
     scene.getStylesheets().add(getTopRes("css/add_pwd.css"));
     loadTheme("standard");
-    System.out.println(scene.getStylesheets());
   }
 
   public static void loadTheme (String name) {
