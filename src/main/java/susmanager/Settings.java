@@ -62,8 +62,11 @@ public class Settings {
   @FXML
   private void color_switchToNord() {
     System.out.println("switched to Nord color theme!");
-    settings_background.setStyle("-fx-background-color: #617482");
+    App.loadTheme("nord");
+    /*settings_background.setStyle("-fx-background-color: #617482");
     title_banner.setStyle("-fx-background-color: #88c0d0");
+
+     */
   }
 
 }
