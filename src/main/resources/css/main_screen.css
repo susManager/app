@@ -10,6 +10,8 @@
     -fx-border-radius: 8;
     -fx-border-insets: -5;
     -fx-background-insets: -5;
+    -fx-background: transparent;
+    -fx-background-color: transparent;
 }
 
 .main-img {
@@ -17,4 +19,6 @@
     -fx-border-radius: 8;
     -fx-border-insets: -5;
     -fx-background-insets: -5;
+    -fx-background: transparent;
+    -fx-background-color: transparent;
 }

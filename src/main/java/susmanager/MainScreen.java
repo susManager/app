@@ -23,7 +23,7 @@ public class MainScreen implements Initializable {
   private static ArrayList<Entry> pass = new ArrayList<>();
 
   @FXML
-  private static ListView<Entry> listView1 = new ListView<>();
+  private ListView<Entry> listView1 = new ListView<>();
 
   @FXML
   private ImageView nothing_found;
