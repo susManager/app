@@ -4,9 +4,11 @@ import fundur.systems.lib.Entry;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +23,7 @@ public class MainScreen implements Initializable {
   private static ArrayList<Entry> pass = new ArrayList<>();
 
   @FXML
-  private ListView<Entry> listView1 = new ListView<>();
+  private static ListView<Entry> listView1 = new ListView<>();
 
   @FXML
   private ImageView nothing_found;
@@ -118,5 +120,24 @@ public class MainScreen implements Initializable {
 
   public static void addPassword(Entry newEntry) {
     pass.add(newEntry);
+  }
+
+  public static class EntryCellFactory implements Callback<ListView<Entry>, ListCell<Entry>> {
+    @Override
+    public ListCell<Entry> call(ListView<Entry> entryListView) {
+      return new ListCell<Entry>() {
+        @Override
+        public void updateItem(Entry entry, boolean empty) {
+          super.updateItem(entry, empty);
+          if (entry == null || empty) {
+            setText(null);
+          } else {
+            setText(entry.name());
+          }
+        }
+
+
+      };
+    }
   }
 }
