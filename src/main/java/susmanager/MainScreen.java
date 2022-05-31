@@ -8,6 +8,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -94,7 +95,7 @@ public class MainScreen implements Initializable {
     if (results.size() == 0) {
       nothing_found.setOpacity(1);
     }
-    if (searchWords.equals("allah")) {
+    if (searchWords.trim().equals("allah")) {
       App.playAllahMode();
       allah.setOpacity(1);
     }
@@ -127,19 +128,19 @@ public class MainScreen implements Initializable {
   public static class EntryCellFactory implements Callback<ListView<Entry>, ListCell<Entry>> {
     @Override
     public ListCell<Entry> call(ListView<Entry> entryListView) {
-      return new ListCell<Entry>() {
+      return new ListCell<>() {
         @Override
         public void updateItem(Entry entry, boolean empty) {
           super.updateItem(entry, empty);
-          if (entry == null || empty) {
-            setText(null);
-          } else {
-            setText(entry.name());
-          }
-          setStyle("styleClass=cell");
+          setText(empty ? null: entry.name());
+          getStyleClass().add("cell");
+          setOnMouseClicked(mouseClickedEvent -> {
+            if (mouseClickedEvent.getButton().equals(MouseButton.PRIMARY) && mouseClickedEvent.getClickCount() == 2) {
+              System.out.println("double clicked");
+            }
+          });
+
         }
-
-
       };
     }
   }

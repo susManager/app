@@ -25,8 +25,17 @@
 
 .cell {
     -fx-background-color: cell-bg-odd;
+    -fx-border-color: cell-border-color;
+    -fx-border-width: 3;
+    -fx-border-radius: 8;
+    -fx-border-insets: -5;
+    -fx-text-fill: cell-text-color-odd;
 }
 
 .cell:even {
     -fx-background-color: cell-bg-even;
+}
+
+.cell:selected {
+    -fx-background-color: #ffaaff;
 }

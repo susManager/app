@@ -10,9 +10,10 @@
     extreme-button-text: WHITE;
     susmanager-color: WHITE;
     top-bar-color: #1f1543;
-    cell-bg-even: #151e51;
-    cell-bg-odd: #2f3e96;
+    cell-bg-even: background-color;
+    cell-bg-odd: background-color;
     cell-text-color: WHITE;
     cell-text-color-even: cell-text-color;
     cell-text-color-odd: cell-text-color;
+    cell-border-color: gray;
 }
