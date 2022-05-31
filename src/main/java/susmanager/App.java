@@ -1,5 +1,7 @@
 package susmanager;
 
+import java.io.IOException;
+import java.util.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +12,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
-import java.util.*;
-
 public class App extends Application {
 
   private static Scene scene;
@@ -22,7 +21,6 @@ public class App extends Application {
   private static boolean isPlaying;
 
   private static String currentTheme = "";
-
 
   @Override
   public void start(Stage stage) throws IOException {
@@ -46,7 +44,7 @@ public class App extends Application {
     scene.getStylesheets().add(getTopRes("css/themes/default.css"));
   }
 
-  public static void loadTheme (String name) {
+  public static void loadTheme(String name) {
     String newTheme = getTopRes("css/themes/" + name + ".css");
     if (newTheme == null || newTheme.isEmpty()) {
       System.out.println("Theme " + name + " not found!");
@@ -65,21 +63,28 @@ public class App extends Application {
   private static void setupStage(Stage stage) {
     stage.setResizable(false);
     stage.setTitle("susManager");
-    stage.getIcons().add(new Image(("file:src/main/resources/susManager_logo.png")));
+    stage
+      .getIcons()
+      .add(new Image(("file:src/main/resources/susManager_logo.png")));
     stage.setScene(scene);
     stage.show();
   }
 
   private static void initCSS() {
-    Random random  = new Random();
+    Random random = new Random();
     if (true) {
-      MediaPlayer m = new MediaPlayer(new Media(getTopRes("vine_boom_fix.wav")));
+      MediaPlayer m = new MediaPlayer(new Media(getTopRes("bgm_mc.mp3")));
       scheduleRun(m::play, 42 * 1000);
-      m.setOnEndOfMedia(() -> scheduleRun(() -> {
-                  m.seek(Duration.ZERO);
-                  m.play();
-                } ,
-              (long) (random.nextInt(360) + 180 ) * 1000 ));
+      m.setOnEndOfMedia(
+        () ->
+          scheduleRun(
+            () -> {
+              m.seek(Duration.ZERO);
+              m.play();
+            },
+            (long) (random.nextInt(360) + 180) * 1000
+          )
+      );
     }
   }
 
@@ -89,15 +94,16 @@ public class App extends Application {
    * @param delay delay in milliseconds
    */
   public static void scheduleRun(Runnable task, long delay) {
-    new Timer().schedule(
-            new TimerTask() {
-              @Override
-              public void run() {
-                task.run();
-              }
-            },
-            delay
-    );
+    new Timer()
+    .schedule(
+        new TimerTask() {
+          @Override
+          public void run() {
+            task.run();
+          }
+        },
+        delay
+      );
   }
 
   private static void setupAudio() {
@@ -165,13 +171,15 @@ public class App extends Application {
     musicPlayer.stop();
     musicPlayer = new MediaPlayer(sound);
     musicPlayer.play();
-    musicPlayer.setOnEndOfMedia(() -> {
-      musicPlayer.seek(Duration.ZERO);
-      musicPlayer.play();
-    });
+    musicPlayer.setOnEndOfMedia(
+      () -> {
+        musicPlayer.seek(Duration.ZERO);
+        musicPlayer.play();
+      }
+    );
   }
 
-  private static void playSound (Media sound) {
+  private static void playSound(Media sound) {
     musicPlayer.stop();
     musicPlayer = new MediaPlayer(sound);
     musicPlayer.play();
