@@ -81,4 +81,13 @@
          <ToggleButton mnemonicParsing="false" onAction="#color_switchToNord" prefHeight="25.0" prefWidth="80.0" styleClass="settings-field" text="Nord" />
       </center>
    </BorderPane>
+   <BorderPane layoutX="234.0" layoutY="387.0" styleClass="settings-field">
+      <center>
+         <ToggleButton mnemonicParsing="false" onAction="#color_switchToTokyoNight" prefHeight="25.0" prefWidth="80.0" styleClass="settings-field" text="Tokyo Night">
+            <font>
+               <Font size="11.0" />
+            </font>
+         </ToggleButton>
+      </center>
+   </BorderPane>
 </Pane>

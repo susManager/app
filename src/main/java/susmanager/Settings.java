@@ -56,4 +56,9 @@ public class Settings {
     App.loadTheme("nord");
   }
 
+  @FXML
+  private void color_switchToTokyoNight() {
+    App.loadTheme("tokyo_night");
+  }
+
 }
