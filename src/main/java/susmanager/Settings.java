@@ -61,4 +61,9 @@ public class Settings {
     App.loadTheme("tokyo_night");
   }
 
+  @FXML
+  private void color_switchToCafe() {
+    App.loadTheme("cafe");
+  }
+
 }

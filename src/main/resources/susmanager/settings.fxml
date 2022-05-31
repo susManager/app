@@ -90,4 +90,13 @@
          </ToggleButton>
       </center>
    </BorderPane>
+   <BorderPane layoutX="234.0" layoutY="423.0" styleClass="settings-field">
+      <center>
+         <ToggleButton mnemonicParsing="false" onAction="#color_switchToCafe" prefHeight="25.0" prefWidth="80.0" styleClass="settings-field" text="Cafe">
+            <font>
+               <Font size="11.0" />
+            </font>
+         </ToggleButton>
+      </center>
+   </BorderPane>
 </Pane>
