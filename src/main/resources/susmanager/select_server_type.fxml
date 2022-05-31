@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -26,11 +27,11 @@
             <Image url="@../settings_icon.png" />
         </ImageView>
     </Pane>
-    <Button layoutX="35.0" layoutY="367.0" mnemonicParsing="false" onAction="#serverLocal" prefHeight="59.0" prefWidth="280.0" styleClass="standard-button" text="Local">
+    <Button layoutX="37.0" layoutY="310.0" mnemonicParsing="false" onAction="#serverLocal" prefHeight="59.0" prefWidth="280.0" styleClass="standard-button" text="Local">
       <font>
          <Font size="18.0" />
       </font></Button>
-    <Button layoutX="35.0" layoutY="443.0" mnemonicParsing="false" onAction="#serverRemote" prefHeight="59.0" prefWidth="280.0" styleClass="standard-button" text="Remote">
+    <Button layoutX="37.0" layoutY="386.0" mnemonicParsing="false" onAction="#serverRemote" prefHeight="59.0" prefWidth="280.0" styleClass="standard-button" text="Remote">
         <font>
             <Font name="Segoe UI" size="18.0" />
         </font>
@@ -59,4 +60,6 @@
          <Glow />
       </effect>
    </BorderPane>
+    <TextField fx:id="server_address" layoutX="37.0" layoutY="479.0" prefHeight="25.0" prefWidth="280.0" promptText="Enter Server Address for Remote Connection..." styleClass="login-field" />
+   <TextField fx:id="no_address_given" alignment="CENTER" layoutX="100.0" layoutY="263.0" opacity="0.0" prefHeight="25.0" prefWidth="155.0" style="-fx-text-fill: red; -fx-background-color: null;" text="No Server Address given!" />
 </Pane>

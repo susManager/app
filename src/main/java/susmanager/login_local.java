@@ -9,7 +9,7 @@ import javax.crypto.BadPaddingException;
 import java.io.IOException;
 import java.util.List;
 
-public class Login {
+public class login_local {
 
   @FXML
   private TextField wrong_password_or_username, no_password_entered, account_created, no_username_entered, login_username, login_pwd;
