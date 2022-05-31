@@ -41,7 +41,9 @@ public class MainScreen implements Initializable {
    */
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    listView1.setCellFactory(new EntryCellFactory());
     listView1.getItems().addAll(pass);
+
   }
 
   @FXML
@@ -134,6 +136,7 @@ public class MainScreen implements Initializable {
           } else {
             setText(entry.name());
           }
+          setStyle("styleClass=cell");
         }
 
 

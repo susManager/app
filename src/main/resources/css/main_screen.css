@@ -22,3 +22,11 @@
     -fx-background: transparent;
     -fx-background-color: transparent;
 }
+
+.cell {
+    -fx-background-color: cell-bg-odd;
+}
+
+.cell:even {
+    -fx-background-color: cell-bg-even;
+}
