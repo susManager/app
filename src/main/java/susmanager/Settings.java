@@ -47,6 +47,11 @@ public class Settings {
   }
 
   @FXML
+  private void switchToSelectServerType() throws IOException {
+    App.setRoot("select_server_type");
+  }
+
+  @FXML
   private void color_switchToDefault() {
     App.loadTheme("default");
   }
