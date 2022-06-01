@@ -1,5 +1,6 @@
 package susmanager;
 
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -79,10 +80,28 @@ public class Settings implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    System.out.println("aaaaa");
-    ChoiceBox selectTheme = new ChoiceBox();
-    selectTheme.getItems().add("Choice 1");
-    selectTheme.getItems().add("Choice 2");
-    selectTheme.getItems().add("Choice 3");
+    selectTheme.getItems().add("Default");
+    selectTheme.getItems().add("Nord");
+    selectTheme.getItems().add("Tokyo Night");
+    selectTheme.getItems().add("Cafe");
+    selectTheme.setOnAction(event -> {switchThemePre();});
+  }
+
+  @FXML
+  private void switchThemePre() {
+    switch (selectTheme.getValue().toString()){
+      case "Default":
+        color_switchToDefault();
+        break;
+      case "Nord":
+        color_switchToNord();
+        break;
+      case "Tokyo Night":
+        color_switchToTokyoNight();
+        break;
+      case "Cafe":
+        color_switchToCafe();
+        break;
+    }
   }
 }
