@@ -78,12 +78,18 @@ public class Settings implements Initializable {
     App.loadTheme("cafe");
   }
 
+  @FXML
+  private void color_switchToLight() {
+    App.loadTheme("light");
+  }
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     selectTheme.getItems().add("Default");
     selectTheme.getItems().add("Nord");
     selectTheme.getItems().add("Tokyo Night");
     selectTheme.getItems().add("Cafe");
+    selectTheme.getItems().add("Light");
     selectTheme.setOnAction(event -> {switchThemePre();});
   }
 
@@ -101,6 +107,9 @@ public class Settings implements Initializable {
         break;
       case "Cafe":
         color_switchToCafe();
+        break;
+      case "Light":
+        color_switchToLight();
         break;
     }
   }
