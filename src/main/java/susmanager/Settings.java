@@ -1,15 +1,21 @@
 package susmanager;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Settings {
+public class Settings implements Initializable {
 
   @FXML
   private ImageView trollFace;
+
+  @FXML
+  private ChoiceBox selectTheme;
 
   @FXML
   private void playThudSound() {
@@ -71,4 +77,12 @@ public class Settings {
     App.loadTheme("cafe");
   }
 
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+    System.out.println("aaaaa");
+    ChoiceBox selectTheme = new ChoiceBox();
+    selectTheme.getItems().add("Choice 1");
+    selectTheme.getItems().add("Choice 2");
+    selectTheme.getItems().add("Choice 3");
+  }
 }

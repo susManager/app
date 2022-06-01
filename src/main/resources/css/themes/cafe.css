@@ -1,13 +1,13 @@
 * {
-    border-color: #3d3635; /* originally #7030a0 */
-    background-color: #f0d3ae;
-    text-color: #3d3635;
+border-color: #3d3635; /* originally #7030a0 */
+    background-color: #e3ac6d;
+    text-color: #562a0d;
     title-color: #3d3635;
-    button-text: #3d3635;
-    standard-button-color: #30b054;
-    standard-button-text: #3d3635;
-    extreme-button-color: #ba1b1f; /* originally #ba1b1f */
-    extreme-button-text: #3d3635;
+    button-text: #562a0d;
+    standard-button-color: #563517;
+    standard-button-text: #c6a28a;
+    extreme-button-color: #8a3c26; /* originally #ba1b1f */
+    extreme-button-text: #c6a28a;
     susmanager-color: #3d3635;
-    top-bar-color: #3d3635;
-}
+    top-bar-color: #ba6324;
+    }
