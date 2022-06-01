@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="MavenCustomPomFilePath">
+    <option name="mavenPomFileUrl" value="file://$MODULE_DIR$/dependency-reduced-pom.xml" />
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_15">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$/src/main/java">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/src/main/resources">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:18" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:win:18" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: fundur.systems:lib:1.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/lib/susManager-lib.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: com.googlecode.addjars-maven-plugin:addjars-maven-plugin:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-project:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-settings:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-profile:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-model:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-artifact-manager:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-repository-metadata:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.wagon:wagon-provider-api:1.0-beta-6" level="project" />
+    <orderEntry type="library" name="Maven: backport-util-concurrent:backport-util-concurrent:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-registry:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-interpolation:1.11" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:1.5.15" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-artifact:2.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9-stable-1" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: classworlds:classworlds:1.1-alpha-2" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20220320" level="project" />
+  </component>
+</module>

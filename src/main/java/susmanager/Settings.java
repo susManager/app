@@ -77,6 +77,11 @@ public class Settings implements Initializable {
     App.loadTheme("cafe");
   }
 
+  @FXML
+  private void color_switchToLight() {
+    App.loadTheme("light");
+  }
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     System.out.println("aaaaa");
