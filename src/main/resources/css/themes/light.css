@@ -1,13 +1,13 @@
 * {
-border-color: #3c5090; /* originally #7030a0 */
-    background-color: #fdfdfd;
+    border-color: #3c5090; /* originally #7030a0 */
+    background-color: #ecf0f1;
     text-color: #000000;
     title-color: #3d3635;
     button-text: #000000;
-    standard-button-color: #1ecd97;
+    standard-button-color: #6d68ce;
     standard-button-text: #f6fcf7;
-    extreme-button-color: #fb797e; /* originally #ba1b1f */
+    extreme-button-color: #6d68ce; /* originally #ba1b1f */
     extreme-button-text: #ffffff;
-    susmanager-color: #3d3635;
-    top-bar-color: #ab81c7;
+    susmanager-color: #dee617;
+    top-bar-color: #6d68ce;
     }

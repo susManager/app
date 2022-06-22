@@ -1,13 +1,13 @@
 * {
-border-color: #3d3635; /* originally #7030a0 */
-    background-color: #e3ac6d;
-    text-color: #562a0d;
-    title-color: #3d3635;
-    button-text: #562a0d;
-    standard-button-color: #563517;
-    standard-button-text: #c6a28a;
-    extreme-button-color: #8a3c26; /* originally #ba1b1f */
-    extreme-button-text: #c6a28a;
-    susmanager-color: #3d3635;
-    top-bar-color: #ba6324;
-    }
+    border-color: #928374; /* originally #7030a0 */
+        background-color: #32302f;
+        text-color: #8ec07c;
+        title-color: #8ec07c;
+        button-text: #562a0d;
+        standard-button-color: #b8bb26;
+        standard-button-text: #32302f;
+        extreme-button-color: #fb4934; /* originally #ba1b1f */
+        extreme-button-text: #32302f;
+        susmanager-color: #8ec07c;
+        top-bar-color: #8ec07c;
+        }
