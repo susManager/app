@@ -83,6 +83,9 @@ public class Settings implements Initializable {
     App.loadTheme("light");
   }
 
+  @FXML
+  private void color_switchToPurple() {App.loadTheme("purple");}
+
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     selectTheme.getItems().add("Default");
@@ -90,6 +93,7 @@ public class Settings implements Initializable {
     selectTheme.getItems().add("Tokyo Night");
     selectTheme.getItems().add("Cafe");
     selectTheme.getItems().add("Light");
+    selectTheme.getItems().add("Purple");
     selectTheme.setOnAction(event -> {switchThemePre();});
   }
 
@@ -110,6 +114,9 @@ public class Settings implements Initializable {
         break;
       case "Light":
         color_switchToLight();
+        break;
+      case "Purple":
+        color_switchToPurple();
         break;
     }
   }
