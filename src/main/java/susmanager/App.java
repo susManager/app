@@ -22,6 +22,8 @@ public class App extends Application {
 
   private static String currentTheme = "";
 
+  private static AppState state;
+
   @Override
   public void start(Stage stage) throws IOException {
     setupAudio();
@@ -33,6 +35,7 @@ public class App extends Application {
     initCSS();
     setupStage(stage);
     playThudSoundShort();
+    state = new AppState();
   }
 
   private static void loadCSS() {
@@ -115,6 +118,10 @@ public class App extends Application {
   static void setRoot(String fxml) throws IOException {
     fxmlStack.push(fxml);
     scene.setRoot(loadFXML(fxml));
+  }
+
+  public static AppState getState() {
+    return state;
   }
 
   private static String getTopRes(String name) {
