@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
@@ -50,6 +51,12 @@ public class Settings implements Initializable {
 
   @FXML
   private void switchToLogin() throws IOException {
+    App.getState().setPwds(new ArrayList<>())
+      .setPassword("")
+      .setEncrstate(null)
+      .setUser("")
+      .setEncrypted(null)
+      .setUrl("");
     App.setRoot("login");
   }
 

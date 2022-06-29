@@ -3,6 +3,7 @@ package susmanager;
 import fundur.systems.lib.Entry;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AppState {
@@ -15,6 +16,10 @@ public class AppState {
     private File encrypted;
 
     private String url;
+
+    public AppState() {
+        pwds = new ArrayList<>();
+    }
 
     public boolean isLocal() {
         return local;

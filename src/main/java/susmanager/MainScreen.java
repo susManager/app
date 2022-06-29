@@ -41,7 +41,7 @@ public class MainScreen implements Initializable {
    */
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    listView1.getItems().addAll(pass);
+    listView1.getItems().addAll(App.getState().pwds());
   }
 
   @FXML
@@ -102,8 +102,8 @@ public class MainScreen implements Initializable {
   /**
    * populates the static variable pass where the passwords are stored with default values
    */
-  public static void setupPasswords() {
-    pass =
+  public static void setupDefaultPasswords() {
+    App.getState().pwds().addAll(
       new ArrayList<>(
         Arrays.asList(
           new Entry("Steam", "steamUser", "steamPassword", "notes", 1),
@@ -111,11 +111,7 @@ public class MainScreen implements Initializable {
           new Entry("Teams", "teamsUser", "teamsPassword", "notes", 1),
           new Entry("Google", "googleUser", "googlePassword", "notes", 1)
         )
-      );
-  }
-
-  public static void setupPasswords(List<Entry> list) {
-    pass = new ArrayList<>(list);
+      ));
   }
 
   public static void addPassword(Entry newEntry) {

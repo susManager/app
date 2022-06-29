@@ -40,8 +40,8 @@ public class login_remote {
 
     try {
       List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
-      MainScreen.setupPasswords(list);
-      switchToMainScreen();
+      App.getState().pwds().addAll(list);
+      App.setRoot("main_screen");
     } catch (BadPaddingException _ignored) {
       wrong_password_or_username.setOpacity(1);
     } catch (NumberFormatException e) {
@@ -58,7 +58,7 @@ public class login_remote {
 
   @FXML
   private void switchToMainScreen() throws IOException {
-    MainScreen.setupPasswords();
+    MainScreen.setupDefaultPasswords();
     App.setRoot("main_screen");
   }
 

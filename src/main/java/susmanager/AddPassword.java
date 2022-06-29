@@ -34,7 +34,7 @@ public class AddPassword {
       not_all_info.visibleProperty().set(true);
     }
 
-    MainScreen.addPassword(
+    App.getState().pwds().add(
       new Entry(
         name.getText(),
         user.getText(),
