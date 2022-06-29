@@ -1,18 +1,22 @@
 package susmanager;
 
-import fundur.systems.lib.Entry;
-import fundur.systems.lib.Manager;
+import fundur.systems.lib.*;
+import fundur.systems.lib.sec.Security;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import org.json.JSONObject;
 
 import javax.crypto.BadPaddingException;
 import java.io.IOException;
 import java.util.List;
 
+import static fundur.systems.lib.Manager.encrypt;
+import static susmanager.App.logErr;
+
 public class login_remote {
 
   @FXML
-  private TextField wrong_password_or_username, no_password_entered, account_created, no_username_entered, login_username, login_pwd;
+  private TextField  account_created, errorMsg, url, lg_usr, lg_pwd;
 
   /**
    * Plays the vine boom effect when the logo is clicked
@@ -38,17 +42,45 @@ public class login_remote {
 
   @FXML
   private void checkPassword() {
-    wrong_password_or_username.setOpacity(0);
-    no_password_entered.setOpacity(0);
     account_created.setOpacity(0);
-    no_username_entered.setOpacity(0);
+    errorMsg.setOpacity(0);
+
+    if (url.getText().isBlank() || lg_pwd.getText().isBlank() || lg_usr.getText().isBlank()) {
+      var err = "";
+      if (url.getText().isBlank()) {
+        logErr("url blank!");
+        err += "url blank!\n";
+      }
+      if (lg_pwd.getText().isBlank()) {
+        logErr("pwd blank!");
+        err += "pwd blank!\n";
+      }
+      if (lg_usr.getText().isBlank()) {
+        logErr("usr name blank!");
+        err += "usr name blank!\n";
+      }
+      errorMsg.setText(err);
+      errorMsg.setOpacity(1);
+      return;
+    }
+
+    var url = this.url.getText();
+    NetManager.serverURL = url + ( switch (url.substring(url.length() -1)) {
+      case "/" -> "";
+      default -> "/";
+    });
+
+    NetManager.serverURL = url + (url.substring(url.length() -1).equals( "/") ?  "" : "/");
 
     try {
-      List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
-      App.getState().pwds().addAll(list);
+      List<Entry> list = Manager.decrypt(lg_usr.getText(), lg_pwd.getText());
+      App.getState()
+              .setPwds(list)
+              .setDebug(false)
+              .setLocal(false);
       App.setRoot("main_screen");
     } catch (BadPaddingException _ignored) {
-      wrong_password_or_username.setOpacity(1);
+
     } catch (NumberFormatException e) {
       if (e.getMessage().equals("For input string: \"nothing found\"")) {
         System.out.println("user not found");
@@ -58,7 +90,6 @@ public class login_remote {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-    wrong_password_or_username.setOpacity(1);
   }
 
   @FXML
@@ -72,21 +103,28 @@ public class login_remote {
 
   @FXML
   void createAccount() {
-    wrong_password_or_username.setOpacity(0);
-    no_password_entered.setOpacity(0);
-    account_created.setOpacity(0);
-    no_username_entered.setOpacity(0);
 
-    if (login_username.getText().length() > 0) {
-      if (login_pwd.getText().length() > 0) {
+    account_created.setOpacity(0);
+
+
+    if (lg_usr.getText().length() > 0) {
+      if (lg_pwd.getText().length() > 0) {
         account_created.setOpacity(1);
       } else {
         System.out.println("Password not long enough!");
-        no_password_entered.setOpacity(1);
+
       }
     } else {
       System.out.println("Username not long enough!");
-      no_username_entered.setOpacity(1);
+
     }
+  }
+
+  public static void main(String[] args) throws Exception {
+    //Just for setup purposes
+    NetManager.serverURL = "http://fundur.systems:6969/";
+    String file = FileManager.loadFile("config.json");
+    NetManager.postEncrStateToServer("fridolin", (new JSONObject(file)).toString());
+    NetManager.postLatestToServer("fridolin", encrypt(Dummy.getDefaultDummyJSON(), "", Security.hash("fridolin"), "iHaveAids69"));
   }
 }

@@ -5,7 +5,8 @@ module susmanager {
   requires javafx.media;
   requires javafx.graphics;
   requires susManager.lib;
+    requires org.json;
 
-  opens susmanager to javafx.fxml;
+    opens susmanager to javafx.fxml;
   exports susmanager to javafx.graphics;
 }
