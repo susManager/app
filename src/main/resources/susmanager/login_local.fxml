@@ -54,7 +54,5 @@
     </BorderPane>
     <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="329.0" promptText="Enter Password..." styleClass="login-field" />
     <Button layoutX="35.0" layoutY="511.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
-    <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="366.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Wrong Password!" />
-    <TextField fx:id="account_created" editable="false" layoutX="67.0" layoutY="419.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
-    <TextField fx:id="no_password_entered" editable="false" layoutX="101.0" layoutY="366.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Please enter a Password!" />
+    <TextField fx:id="errorMsg" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Either wrong Password or Username!" />
 </Pane>

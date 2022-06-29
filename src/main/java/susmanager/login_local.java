@@ -1,18 +1,26 @@
 package susmanager;
 
 import fundur.systems.lib.Entry;
+import fundur.systems.lib.FileManager;
 import fundur.systems.lib.Manager;
+import fundur.systems.lib.sec.EncrState;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 import javax.crypto.BadPaddingException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+
+import static susmanager.App.logErr;
 
 public class login_local {
 
   @FXML
-  private TextField wrong_password_or_username, no_password_entered, account_created, login_username, login_pwd;
+  private TextField errorMsg, login_pwd;
 
   /**
    * Plays the vine boom effect when the logo is clicked
@@ -38,26 +46,20 @@ public class login_local {
 
   @FXML
   private void onSelectConfig() {
-    wrong_password_or_username.setOpacity(0);
-    no_password_entered.setOpacity(0);
-    account_created.setOpacity(0);
+    FileChooser fc = new FileChooser();
+    fc.setTitle("Choose your config");
+    File f = fc.showOpenDialog(login_pwd.getScene().getWindow());
+    errorMsg.setOpacity(0);
+    EncrState state;
 
     try {
-      List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
-      App.getState().pwds().addAll(list);
-      App.setRoot("main_screen");
-    } catch (BadPaddingException _ignored) {
-      wrong_password_or_username.setOpacity(1);
-    } catch (NumberFormatException e) {
-      if (e.getMessage().equals("For input string: \"nothing found\"")) {
-        System.out.println("user not found");
-      } else {
-        throw e;
-      }
-    } catch (Exception e) {
-      System.out.println(e.getMessage());
+      state = FileManager.getEncrStateFromFile(f.getPath());
+      App.getState().setEncrstate(state);
+    } catch (FileNotFoundException e) {
+      errorMsg.setOpacity(1);
+      errorMsg.setText("config file not found");
+      logErr("config file not found");
     }
-    wrong_password_or_username.setOpacity(1);
   }
 
   @FXML
@@ -68,19 +70,14 @@ public class login_local {
 
   @FXML
   void onSelectEncrypted() {
-    wrong_password_or_username.setOpacity(0);
-    no_password_entered.setOpacity(0);
-    account_created.setOpacity(0);
-
-    if (login_username.getText().length() > 0) {
-      if (login_pwd.getText().length() > 0) {
-        account_created.setOpacity(1);
-      } else {
-        System.out.println("Password not long enough!");
-        no_password_entered.setOpacity(1);
-      }
-    } else {
-      System.out.println("Username not long enough!");
+    FileChooser fc = new FileChooser();
+    fc.setTitle("Choose the encrypted file");
+    File f = fc.showOpenDialog(login_pwd.getScene().getWindow());
+    App.getState().setEncrypted(f);
+    errorMsg.setOpacity(0);
+    if (!f.exists()) {
+      errorMsg.setOpacity(1);
+      errorMsg.setText("Encrypted file not found!");
     }
   }
 }

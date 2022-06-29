@@ -195,6 +195,10 @@ public class App extends Application {
     musicPlayer.play();
   }
 
+  public static void logErr(Object o) {
+    System.out.println(o);
+  }
+
   public static void main(String[] args) {
     launch();
   }

@@ -1,6 +1,7 @@
 package susmanager;
 
 import fundur.systems.lib.Entry;
+import fundur.systems.lib.sec.EncrState;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class AppState {
     private String user;
     private String password;
 
-    private File encrstate;
+    private EncrState encrstate;
     private File encrypted;
 
     private String url;
@@ -37,7 +38,7 @@ public class AppState {
         return password;
     }
 
-    public File encrstate() {
+    public EncrState encrstate() {
         return encrstate;
     }
 
@@ -69,7 +70,7 @@ public class AppState {
         return this;
     }
 
-    public AppState setEncrstate(File encrstate) {
+    public AppState setEncrstate(EncrState encrstate) {
         this.encrstate = encrstate;
         return this;
     }
