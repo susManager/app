@@ -2,6 +2,7 @@ package susmanager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
 import java.io.IOException;
@@ -13,10 +14,12 @@ import java.util.ResourceBundle;
 public class Settings implements Initializable {
 
   @FXML
+  private Button logoutBtn;
+  @FXML
   private ImageView trollFace;
 
   @FXML
-  private ChoiceBox selectTheme;
+  private ChoiceBox<String> selectTheme;
 
   @FXML
   private void playThudSound() {
@@ -101,6 +104,14 @@ public class Settings implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
+    initThemes();
+    if (!App.getState().logged()) {
+      logoutBtn.setOnAction(null);
+      logoutBtn.setOpacity(0);
+    }
+  }
+
+  private void initThemes() {
     selectTheme.getItems().add("Default");
     selectTheme.getItems().add("Nord");
     selectTheme.getItems().add("Tokyo Night");

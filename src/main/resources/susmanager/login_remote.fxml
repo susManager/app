@@ -52,7 +52,7 @@
         </effect>
     </BorderPane>
     <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..." styleClass="login-field" />
-    <Button layoutX="35.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
+    <Button layoutX="35.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#defaultMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
     <TextField fx:id="login_username" layoutX="101.0" layoutY="211.0" promptText="Enter Username..." styleClass="login-field" />
     <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Either wrong Password or Username!" />
     <TextField fx:id="account_created" editable="false" layoutX="67.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
