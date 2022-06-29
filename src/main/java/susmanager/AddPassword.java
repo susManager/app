@@ -9,6 +9,8 @@ import java.io.IOException;
 public class AddPassword {
 
   @FXML
+  private TextField not_all_info;
+  @FXML
   private TextField name, user, password, notes;
 
   @FXML
@@ -28,6 +30,10 @@ public class AddPassword {
 
   @FXML
   private void addPassword() throws IOException {
+    if (name.getText().isBlank() || user.getText().isBlank() || password.getText().isBlank()) {
+      not_all_info.visibleProperty().set(true);
+    }
+
     MainScreen.addPassword(
       new Entry(
         name.getText(),
