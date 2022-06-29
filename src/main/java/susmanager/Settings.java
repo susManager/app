@@ -51,17 +51,17 @@ public class Settings implements Initializable {
 
   @FXML
   private void switchToLogin() throws IOException {
-    App.getState().setPwds(new ArrayList<>())
-      .setPassword("")
-      .setEncrstate(null)
-      .setUser("")
-      .setEncrypted(null)
-      .setUrl("");
     App.setRoot("login");
   }
 
   @FXML
   private void switchToSelectServerType() throws IOException {
+    App.getState().setPwds(new ArrayList<>())
+            .setPassword("")
+            .setEncrstate(null)
+            .setUser("")
+            .setEncrypted(null)
+            .setUrl("");
     App.setRoot("select_server_type");
   }
 
