@@ -32,6 +32,11 @@ public class login_remote {
   }
 
   @FXML
+  private void switchToLoginLocal() throws IOException {
+    App.setRoot("login_local");
+  }
+
+  @FXML
   private void checkPassword() {
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);

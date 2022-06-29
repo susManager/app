@@ -12,7 +12,7 @@ import java.util.List;
 public class login_local {
 
   @FXML
-  private TextField wrong_password_or_username, no_password_entered, account_created, no_username_entered, login_username, login_pwd;
+  private TextField wrong_password_or_username, no_password_entered, account_created, login_username, login_pwd;
 
   /**
    * Plays the vine boom effect when the logo is clicked
@@ -32,11 +32,15 @@ public class login_local {
   }
 
   @FXML
+  private void switchToLoginRemote() throws IOException {
+    App.setRoot("login_remote");
+  }
+
+  @FXML
   private void onSelectConfig() {
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);
     account_created.setOpacity(0);
-    no_username_entered.setOpacity(0);
 
     try {
       List<Entry> list = Manager.decrypt(login_username.getText(), login_pwd.getText());
@@ -67,7 +71,6 @@ public class login_local {
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);
     account_created.setOpacity(0);
-    no_username_entered.setOpacity(0);
 
     if (login_username.getText().length() > 0) {
       if (login_pwd.getText().length() > 0) {
@@ -78,7 +81,6 @@ public class login_local {
       }
     } else {
       System.out.println("Username not long enough!");
-      no_username_entered.setOpacity(1);
     }
   }
 }

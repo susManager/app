@@ -27,7 +27,7 @@
         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettingsLogin" pickOnBounds="true" preserveRatio="true">
             <Image url="@../settings_icon.png" />
         </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="182.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="255.0" layoutY="9.0" onMouseClicked="#switchToLoginLocal" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../remote.png" />
          </image>

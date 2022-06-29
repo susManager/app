@@ -27,22 +27,22 @@
         <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettingsLogin" pickOnBounds="true" preserveRatio="true">
             <Image url="@../settings_icon.png" />
         </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="182.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="255.0" layoutY="9.0" onMouseClicked="#switchToLoginRemote" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../local.png" />
          </image>
       </ImageView>
     </Pane>
-    <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#onSelectConfig" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Select Config" />
-    <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Select Encrypted"/>
-    <Button layoutX="74.0" layoutY="450.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Login">
+    <Button layoutX="34.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSelectConfig" prefHeight="66.0" prefWidth="135.0" styleClass="standard-button" text="Select Config" />
+    <Button layoutX="183.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="66.0" prefWidth="135.0" styleClass="standard-button" text="Select Encrypted" />
+    <Button layoutX="68.0" layoutY="454.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="217.0" styleClass="extreme-button" text="Login">
         <font>
             <Font name="Segoe UI" size="10.0" />
         </font>
     </Button>
-    <BorderPane layoutX="67.0" layoutY="102.0" styleClass="login-pane">
+    <BorderPane layoutX="151.0" layoutY="103.0" styleClass="login-pane">
         <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Login or create an account!">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Login!">
                 <font>
                     <Font name="Segoe UI" size="18.0" />
                 </font>
@@ -52,11 +52,9 @@
             <Glow />
         </effect>
     </BorderPane>
-    <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..." styleClass="login-field" />
-    <Button layoutX="35.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
-    <TextField fx:id="login_username" layoutX="101.0" layoutY="211.0" promptText="Enter Username..." styleClass="login-field" />
-    <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Either wrong Password or Username!" />
-    <TextField fx:id="account_created" editable="false" layoutX="67.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
-    <TextField fx:id="no_password_entered" editable="false" layoutX="95.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Please enter a Password!" />
-    <TextField fx:id="no_username_entered" editable="false" layoutX="101.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Please enter a Username!" />
+    <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="329.0" promptText="Enter Password..." styleClass="login-field" />
+    <Button layoutX="35.0" layoutY="511.0" mnemonicParsing="false" onMouseClicked="#switchToMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
+    <TextField fx:id="wrong_password_or_username" editable="false" layoutX="61.0" layoutY="366.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Wrong Password!" />
+    <TextField fx:id="account_created" editable="false" layoutX="67.0" layoutY="419.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
+    <TextField fx:id="no_password_entered" editable="false" layoutX="101.0" layoutY="366.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Please enter a Password!" />
 </Pane>
