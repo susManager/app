@@ -76,7 +76,7 @@ public class login_remote {
       List<Entry> list = Manager.decrypt(lg_usr.getText(), lg_pwd.getText());
       App.getState()
               .setPwds(list)
-              .setDebug(false)
+              .setLogged(true)
               .setLocal(false);
       App.setRoot("main_screen");
     } catch (BadPaddingException _ignored) {
