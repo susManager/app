@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 
 public class MainScreen implements Initializable {
 
-  private static ArrayList<Entry> pass = new ArrayList<>();
-
   @FXML
   private ListView<Entry> listView1 = new ListView<>();
 
@@ -109,10 +107,6 @@ public class MainScreen implements Initializable {
           new Entry("Google", "googleUser", "googlePassword", "notes", 1)
         )
       ));
-  }
-
-  public static void addPassword(Entry newEntry) {
-    pass.add(newEntry);
   }
 
   public static class EntryCellFactory implements Callback<ListView<Entry>, ListCell<Entry>> {
