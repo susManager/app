@@ -70,28 +70,27 @@ public class Settings implements Initializable {
   @FXML
   private void switchToSelectServerType() throws IOException {
     AppState s = App.getState();
-    if (s.debug()) {
-      App.getState().setPwds(new ArrayList<>())
-              .setPassword("")
-              .setEncrstate(null)
-              .setUser("")
-              .setEncrypted(null)
-              .setUrl("");
-      App.setRoot("login_remote");
+
+    if (!s.debug()) {
+      if (s.local()) {
+        try {
+          FileManager.saveToFile(s.pwds(), s.encrstate(), s.encrypted(), s.password());
+        } catch (Exception e) {
+          logErr("at this point, how did this happen?");
+          logErr(e.toString());
+        }
+      } else {
+        logErr("implement le remote!!");
+      }
     }
-    try {
-      FileManager.saveToFile(s.pwds(), s.encrstate(), s.encrypted(), s.password());
-      App.getState().setPwds(new ArrayList<>())
-              .setPassword("")
-              .setEncrstate(null)
-              .setUser("")
-              .setEncrypted(null)
-              .setUrl("");
-      App.setRoot("login_remote");
-    } catch (Exception e) {
-      logErr("at this point, how did this happen?");
-      logErr(e.toString());
-    }
+
+    App.getState().setPwds(new ArrayList<>())
+            .setPassword("")
+            .setEncrstate(null)
+            .setUser("")
+            .setEncrypted(null)
+            .setUrl("");
+    App.setRoot("login_remote");
   }
 
   @FXML
