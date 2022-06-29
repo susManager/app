@@ -58,4 +58,5 @@
     <TextField fx:id="account_created" editable="false" layoutX="67.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
     <TextField fx:id="no_password_entered" editable="false" layoutX="95.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Please enter a Password!" />
     <TextField fx:id="no_username_entered" editable="false" layoutX="101.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="149.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Please enter a Username!" />
+   <PasswordField layoutX="101.0" layoutY="147.0" promptText="Enter Server Address..." styleClass="login-field" />
 </Pane>
