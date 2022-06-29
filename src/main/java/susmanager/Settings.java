@@ -1,6 +1,5 @@
 package susmanager;
 
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -62,7 +61,7 @@ public class Settings implements Initializable {
             .setUser("")
             .setEncrypted(null)
             .setUrl("");
-    App.setRoot("select_server_type");
+    App.setRoot("login_remote");
   }
 
   @FXML

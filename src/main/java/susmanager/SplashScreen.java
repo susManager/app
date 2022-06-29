@@ -30,7 +30,7 @@ public class SplashScreen implements Initializable {
                 ranNum,
                 () -> {
                     try {
-                        App.setRoot("select_server_type");
+                        App.setRoot("login_remote");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
