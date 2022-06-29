@@ -24,7 +24,7 @@
             <Image url="@../arrow_forward.png" />
         </ImageView>
     </Pane>
-    <Button layoutX="108.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#switchToSelectServerType" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Logout">
+    <Button fx:id="logoutBtn" layoutX="108.0" layoutY="493.0" mnemonicParsing="false" onMouseClicked="#switchToSelectServerType" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Logout">
         <font>
             <Font name="Segoe UI" size="10.0" />
         </font>

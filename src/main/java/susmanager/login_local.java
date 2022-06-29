@@ -1,13 +1,10 @@
 package susmanager;
 
-import fundur.systems.lib.Entry;
 import fundur.systems.lib.FileManager;
-import fundur.systems.lib.Manager;
 import fundur.systems.lib.sec.EncrState;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Window;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -19,7 +16,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.List;
 
 import static susmanager.App.logErr;
 
@@ -69,8 +65,9 @@ public class login_local {
   }
 
   @FXML
-  private void switchToMainScreen() throws IOException {
+  private void defaultMainScreen() throws IOException {
     MainScreen.setupDefaultPasswords();
+    App.getState().setLogged(true);
     App.setRoot("main_screen");
   }
 
@@ -110,7 +107,8 @@ public class login_local {
       var pwds = FileManager.getEntryListFromFile(login_pwd.getText(), s.encrstate(), s.encrypted());
       s.setPwds(pwds)
         .setPassword(login_pwd.getText())
-        .setLocal(true);
+        .setLocal(true)
+        .setLogged(true);
       App.setRoot("main_screen");
     } catch (IOException e) {
       logErr("Encrypted file not found lul");
