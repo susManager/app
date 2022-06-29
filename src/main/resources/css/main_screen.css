@@ -22,3 +22,12 @@
     -fx-background: transparent;
     -fx-background-color: transparent;
 }
+
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: #7030a0;
+}
+.list-cell { -fx-text-fill: white;}
+.list-cell:odd { -fx-background-color: #070a1b; }
+.list-cell:even { -fx-background-color: #050714; }

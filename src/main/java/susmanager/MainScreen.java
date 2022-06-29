@@ -118,7 +118,7 @@ public class MainScreen implements Initializable {
   public static class EntryCellFactory implements Callback<ListView<Entry>, ListCell<Entry>> {
     @Override
     public ListCell<Entry> call(ListView<Entry> entryListView) {
-      return new ListCell<Entry>() {
+      var Cell = new ListCell<Entry>() {
         @Override
         public void updateItem(Entry entry, boolean empty) {
           super.updateItem(entry, empty);
