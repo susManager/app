@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppState {
-    private boolean local, logged;
+    private boolean local, logged, debug;
     private List<Entry> pwds;
     private String user;
     private String password;
@@ -95,6 +95,15 @@ public class AppState {
 
     public AppState setLogged(boolean logged) {
         this.logged = logged;
+        return this;
+    }
+
+    public boolean debug() {
+        return debug;
+    }
+
+    public AppState setDebug(boolean debug) {
+        this.debug = debug;
         return this;
     }
 }
