@@ -10,9 +10,15 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
 import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 
 import static susmanager.App.logErr;
@@ -78,6 +84,43 @@ public class login_local {
     if (!f.exists()) {
       errorMsg.setOpacity(1);
       errorMsg.setText("Encrypted file not found!");
+    }
+  }
+
+  @FXML
+  private void localLogin() {
+    errorMsg.setOpacity(0);
+    AppState s = App.getState();
+    if (login_pwd.getText().isBlank() || s.encrstate() == null || s.encrypted() == null || !s.encrypted().exists()) {
+      if (login_pwd.getText().isBlank()) {
+        logErr("Password is empty :(");
+      }
+      if (s.encrstate() == null) {
+        logErr("EncrState not selected!");
+      }
+      if (s.encrypted() == null) {
+        logErr("Encrypted file not selected!");
+      } else if (!s.encrypted().exists()){
+        logErr("Encrypted file not found!");
+      }
+      return;
+    }
+
+    try {
+      var pwds = FileManager.getEntryListFromFile(login_pwd.getText(), s.encrstate(), s.encrypted());
+      s.setPwds(pwds)
+        .setPassword(login_pwd.getText())
+        .setLocal(true);
+      App.setRoot("main_screen");
+    } catch (IOException e) {
+      logErr("Encrypted file not found lul");
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException | InvalidAlgorithmParameterException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException e ) {
+      logErr("Decryption gone wrong (hot)");
+      logErr(e.toString());
+    } catch (InvalidKeyException e) {
+      errorMsg.setOpacity(1);
+      errorMsg.setText("Wrong password");
+      logErr("Wrong password supplied");
     }
   }
 }
