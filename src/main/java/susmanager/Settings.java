@@ -1,14 +1,25 @@
 package susmanager;
 
+import fundur.systems.lib.FileManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static susmanager.App.logErr;
 
 
 public class Settings implements Initializable {
@@ -58,13 +69,29 @@ public class Settings implements Initializable {
 
   @FXML
   private void switchToSelectServerType() throws IOException {
-    App.getState().setPwds(new ArrayList<>())
-            .setPassword("")
-            .setEncrstate(null)
-            .setUser("")
-            .setEncrypted(null)
-            .setUrl("");
-    App.setRoot("login_remote");
+    AppState s = App.getState();
+    if (s.debug()) {
+      App.getState().setPwds(new ArrayList<>())
+              .setPassword("")
+              .setEncrstate(null)
+              .setUser("")
+              .setEncrypted(null)
+              .setUrl("");
+      App.setRoot("login_remote");
+    }
+    try {
+      FileManager.saveToFile(s.pwds(), s.encrstate(), s.encrypted(), s.password());
+      App.getState().setPwds(new ArrayList<>())
+              .setPassword("")
+              .setEncrstate(null)
+              .setUser("")
+              .setEncrypted(null)
+              .setUrl("");
+      App.setRoot("login_remote");
+    } catch (Exception e) {
+      logErr("at this point, how did this happen?");
+      logErr(e.toString());
+    }
   }
 
   @FXML
