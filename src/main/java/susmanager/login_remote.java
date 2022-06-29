@@ -64,7 +64,9 @@ public class login_remote {
   @FXML
   private void defaultMainScreen() throws IOException {
     MainScreen.setupDefaultPasswords();
-    App.getState().setLogged(true);
+    App.getState()
+            .setLogged(true)
+            .setDebug(true);
     App.setRoot("main_screen");
   }
 

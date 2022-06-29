@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 public class App extends Application {
@@ -18,6 +19,7 @@ public class App extends Application {
   private static Stack<String> fxmlStack;
 
   private static MediaPlayer musicPlayer;
+  private Timer timer;
   private static boolean isPlaying;
 
   private static String currentTheme = "";
@@ -34,11 +36,25 @@ public class App extends Application {
     //TODO:
     // add close handler
     // https://stackoverflow.com/questions/26619566/javafx-stage-close-handler
+    timer = new Timer();
     loadCSS();
     initCSS();
     setupStage(stage);
+    setupCloseHandler();
     playThudSoundShort();
     state = new AppState();
+  }
+
+  private void setupCloseHandler() {
+    scene.getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, (_ignored) -> {
+      try {
+        Settings.logout();
+        musicPlayer.stop();
+        timer.cancel();
+      } catch (IOException e) {
+        System.out.println(e); //TODO: better catch
+      }
+    });
   }
 
   private static void loadCSS() {
@@ -76,8 +92,9 @@ public class App extends Application {
     stage.show();
   }
 
-  private static void initCSS() {
+  private void initCSS() {
     Random random = new Random();
+    //TODO: add random play
     if (true) {
       MediaPlayer m = new MediaPlayer(new Media(getTopRes("bgm_mc.mp3")));
       scheduleRun(m::play, 42 * 1000);
@@ -99,8 +116,8 @@ public class App extends Application {
    * @param task sus
    * @param delay delay in milliseconds
    */
-  public static void scheduleRun(Runnable task, long delay) {
-    new Timer()
+  public void scheduleRun(Runnable task, long delay) {
+    timer
     .schedule(
         new TimerTask() {
           @Override

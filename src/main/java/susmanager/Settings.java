@@ -7,15 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -68,7 +61,11 @@ public class Settings implements Initializable {
   }
 
   @FXML
-  private void switchToSelectServerType() throws IOException {
+  private void triggerLogout() throws IOException {
+    Settings.logout();
+  }
+
+  public static void logout() throws IOException {
     AppState s = App.getState();
 
     if (!s.debug()) {
