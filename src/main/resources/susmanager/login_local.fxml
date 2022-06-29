@@ -35,7 +35,7 @@
     </Pane>
     <Button layoutX="34.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSelectConfig" prefHeight="66.0" prefWidth="135.0" styleClass="standard-button" text="Select Config" />
     <Button layoutX="183.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="66.0" prefWidth="135.0" styleClass="standard-button" text="Select Encrypted" />
-    <Button layoutX="68.0" layoutY="454.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="217.0" styleClass="extreme-button" text="Login">
+    <Button layoutX="68.0" layoutY="454.0" mnemonicParsing="false" onAction="#localLogin" prefHeight="43.0" prefWidth="217.0" styleClass="extreme-button" text="Login">
         <font>
             <Font name="Segoe UI" size="10.0" />
         </font>
