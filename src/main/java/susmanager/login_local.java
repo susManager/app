@@ -32,7 +32,7 @@ public class login_local {
   }
 
   @FXML
-  private void checkPassword() {
+  private void onSelectConfig() {
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);
     account_created.setOpacity(0);
@@ -63,7 +63,7 @@ public class login_local {
   }
 
   @FXML
-  void createAccount() {
+  void onSelectEncrypted() {
     wrong_password_or_username.setOpacity(0);
     no_password_entered.setOpacity(0);
     account_created.setOpacity(0);

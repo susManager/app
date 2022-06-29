@@ -31,6 +31,7 @@ public class App extends Application {
     fxmlStack.push("splash_screen");
     setupStack();
     scene = new Scene(loadFXML("splash_screen"), 350, 550);
+    //TODO:
     // add close handler
     // https://stackoverflow.com/questions/26619566/javafx-stage-close-handler
     loadCSS();

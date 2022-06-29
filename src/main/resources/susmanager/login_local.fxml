@@ -33,8 +33,9 @@
          </image>
       </ImageView>
     </Pane>
-    <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#checkPassword" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Login" />
-    <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Create Account">
+    <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#onSelectConfig" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Select Config" />
+    <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Select Encrypted"/>
+    <Button layoutX="74.0" layoutY="450.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Login">
         <font>
             <Font name="Segoe UI" size="10.0" />
         </font>
