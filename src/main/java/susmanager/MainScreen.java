@@ -12,10 +12,7 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MainScreen implements Initializable {
@@ -61,7 +58,7 @@ public class MainScreen implements Initializable {
   @FXML
   void search(Event _ignored) {
     listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), pass));
+    listView1.getItems().addAll(searchList(searchBar1.getText(), App.getState().pwds()));
   }
 
   @FXML
@@ -69,7 +66,7 @@ public class MainScreen implements Initializable {
     App.playThudSound();
   }
 
-  private List<Entry> searchList(String searchWords, List<Entry> results) {
+  private List<Entry> searchList(String searchWords, List<Entry> entries) {
     allah.setOpacity(0);
     nothing_found.setOpacity(0);
 
@@ -77,13 +74,13 @@ public class MainScreen implements Initializable {
       searchWords.trim().split(" ")
     );
 
-    results =
-      results
+    var results =
+      entries
         .stream()
         .filter(
           input -> searchWordsArray
             .stream()
-            .allMatch(
+            .anyMatch(
               word -> input.name().toLowerCase().contains(word.toLowerCase())
             )
         )
