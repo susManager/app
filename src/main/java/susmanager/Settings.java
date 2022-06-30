@@ -1,11 +1,16 @@
 package susmanager;
 
+import fundur.systems.lib.Dummy;
 import fundur.systems.lib.FileManager;
+import fundur.systems.lib.Manager;
+import fundur.systems.lib.NetManager;
+import fundur.systems.lib.sec.Security;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,12 +77,23 @@ public class Settings implements Initializable {
       if (s.local()) {
         try {
           FileManager.saveToFile(s.pwds(), s.encrstate(), s.encrypted(), s.password());
+        } catch (IOException e) {
+          logErr("unable to open file!");
         } catch (Exception e) {
           logErr("at this point, how did this happen?");
           logErr(e.toString());
         }
       } else {
-        logErr("implement le remote!!");
+        JSONObject json = Manager.list2JSONObject(s.pwds());
+        try {
+          String encr = Manager.encrypt(json, s.password(), s.encrstate());
+          NetManager.postLatestToServer("fridolin", encr);
+        } catch (IOException e) {
+          logErr("unable to connect to server!");
+        } catch (Exception e) {
+          logErr("at this point, how did this happen?");
+          logErr(e.toString());
+        }
       }
     }
 
@@ -86,7 +102,9 @@ public class Settings implements Initializable {
             .setEncrstate(null)
             .setUser("")
             .setEncrypted(null)
-            .setUrl("");
+            .setUrl("")
+            .setLogged(false)
+            .setDebug(false);
     App.setRoot("login_remote");
   }
 

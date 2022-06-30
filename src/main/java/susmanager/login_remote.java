@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.json.JSONObject;
 
-import javax.crypto.BadPaddingException;
 import java.io.IOException;
 import java.util.List;
 
@@ -65,30 +64,26 @@ public class login_remote {
     }
 
     var url = this.url.getText();
-    NetManager.serverURL = url + ( switch (url.substring(url.length() -1)) {
-      case "/" -> "";
-      default -> "/";
-    });
 
-    NetManager.serverURL = url + (url.substring(url.length() -1).equals( "/") ?  "" : "/");
+    NetManager.serverURL = url + (url.endsWith( "/") ?  "" : "/");
 
     try {
       List<Entry> list = Manager.decrypt(lg_usr.getText(), lg_pwd.getText());
       App.getState()
+              .setEncrstate(NetManager.getEncrStateFromServer(lg_usr.getText()))
+              .setPassword(lg_pwd.getText())
               .setPwds(list)
               .setLogged(true)
               .setLocal(false);
       App.setRoot("main_screen");
-    } catch (BadPaddingException _ignored) {
-
     } catch (NumberFormatException e) {
       if (e.getMessage().equals("For input string: \"nothing found\"")) {
-        System.out.println("user not found");
+        logErr("user not found");
       } else {
         throw e;
       }
     } catch (Exception e) {
-      System.out.println(e.getMessage());
+      logErr(e.getMessage());
     }
   }
 
