@@ -87,7 +87,7 @@ public class Settings implements Initializable {
         JSONObject json = Manager.list2JSONObject(s.pwds());
         try {
           String encr = Manager.encrypt(json, s.password(), s.encrstate());
-          NetManager.postLatestToServer("fridolin", encr);
+          NetManager.postLatestToServer(s.user(), encr);
         } catch (IOException e) {
           logErr("unable to connect to server!");
         } catch (Exception e) {

@@ -1,12 +1,14 @@
 package susmanager;
 
 import fundur.systems.lib.*;
+import fundur.systems.lib.sec.EncrState;
 import fundur.systems.lib.sec.Security;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static fundur.systems.lib.Manager.encrypt;
@@ -39,8 +41,7 @@ public class login_remote {
     App.setRoot("login_local");
   }
 
-  @FXML
-  private void tryLogin() {
+  private boolean pre() {
     account_created.setOpacity(0);
     errorMsg.setOpacity(0);
 
@@ -60,8 +61,15 @@ public class login_remote {
       }
       errorMsg.setText(err);
       errorMsg.setOpacity(1);
-      return;
+      return true;
     }
+    return false;
+  }
+
+  @FXML
+  private void tryLogin() {
+    if (pre())
+      return;
 
     var url = this.url.getText();
 
@@ -72,6 +80,7 @@ public class login_remote {
       App.getState()
               .setEncrstate(NetManager.getEncrStateFromServer(lg_usr.getText()))
               .setPassword(lg_pwd.getText())
+              .setUser(lg_usr.getText())
               .setPwds(list)
               .setLogged(true)
               .setLocal(false);
@@ -97,8 +106,41 @@ public class login_remote {
   }
 
   @FXML
-  void tryCreateAccount() {
+  private void tryCreateAccount() {
+    if (pre())
+      return;
 
+    var url = this.url.getText();
+
+    NetManager.serverURL = url + (url.endsWith( "/") ?  "" : "/");
+
+    try {
+      if (NetManager.exists(lg_usr.getText())) {
+        logErr("user exists");
+        errorMsg.setText("User exists!");
+        errorMsg.setOpacity(1);
+        return;
+      }
+      EncrState state = Security.generateNewEncrstate();
+      NetManager.postEncrStateToServer(lg_usr.getText(), state.toJSON().toString());
+
+      App.getState()
+              .setEncrstate(NetManager.getEncrStateFromServer(lg_usr.getText()))
+              .setPassword(lg_pwd.getText())
+              .setUser(lg_usr.getText())
+              .setPwds(new ArrayList<>())
+              .setLogged(true)
+              .setLocal(false);
+      App.setRoot("main_screen");
+    } catch (NumberFormatException e) {
+      if (e.getMessage().equals("For input string: \"nothing found\"")) {
+        logErr("user not found");
+      } else {
+        throw e;
+      }
+    } catch (Exception e) {
+      logErr(e.getMessage());
+    }
   }
 
   public static void main(String[] args) throws Exception {
