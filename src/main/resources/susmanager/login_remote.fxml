@@ -33,8 +33,8 @@
          </image>
       </ImageView>
     </Pane>
-    <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#checkPassword" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Login" />
-    <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Create Account">
+    <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#tryLogin" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Login" />
+    <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#tryCreateAccount" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Create Account">
         <font>
             <Font name="Segoe UI" size="10.0" />
         </font>

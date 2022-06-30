@@ -40,7 +40,7 @@ public class login_remote {
   }
 
   @FXML
-  private void checkPassword() {
+  private void tryLogin() {
     account_created.setOpacity(0);
     errorMsg.setOpacity(0);
 
@@ -97,22 +97,8 @@ public class login_remote {
   }
 
   @FXML
-  void createAccount() {
+  void tryCreateAccount() {
 
-    account_created.setOpacity(0);
-
-
-    if (lg_usr.getText().length() > 0) {
-      if (lg_pwd.getText().length() > 0) {
-        account_created.setOpacity(1);
-      } else {
-        System.out.println("Password not long enough!");
-
-      }
-    } else {
-      System.out.println("Username not long enough!");
-
-    }
   }
 
   public static void main(String[] args) throws Exception {
