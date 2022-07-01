@@ -106,15 +106,20 @@ public class login_local {
     if (login_pwd.getText().isBlank() || s.encrstate() == null || s.encrypted() == null || !s.encrypted().exists()) {
       if (login_pwd.getText().isBlank()) {
         logErr("Password is empty :(");
+        errorMsg.setText("Password is empty");
       }
       if (s.encrstate() == null) {
-        logErr("EncrState not selected!");
+        logErr("Config not selected!");
+        errorMsg.setText("Config not selected!");
       }
       if (s.encrypted() == null) {
         logErr("Encrypted file not selected!");
+        errorMsg.setText("Encrypted file not selected!");
       } else if (!s.encrypted().exists()){
         logErr("Encrypted file not found!");
+        errorMsg.setText("Encrypted file not found!");
       }
+      errorMsg.setOpacity(1);
       return true;
     }
     return false;
