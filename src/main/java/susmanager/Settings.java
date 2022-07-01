@@ -12,6 +12,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -106,6 +107,39 @@ public class Settings implements Initializable {
             .setLogged(false)
             .setDebug(false);
     App.setRoot("login_remote");
+  }
+
+  @FXML
+  private void export() {
+    AppState s = App.getState();
+    File f = new File(Security.hash(s.user()) + "-encrypted.sus");
+    if (f.exists()) {
+      f = new File(Security.hash(s.user()) + "-encrypted-" + (System.currentTimeMillis() / 1000) + ".sus");
+    }
+
+    try {
+      FileManager.saveToFile(s.pwds(), s.encrstate(), f, s.password());
+    } catch (IOException e) {
+      logErr("unable to open file!");
+    } catch (Exception e) {
+      logErr("at this point, how did this happen?");
+      logErr(e.toString());
+    }
+
+    File e = new File(Security.hash(s.user()) + "-" + "config.json");
+    try {
+      FileManager.saveFile(s.encrstate().toString(), e);
+    } catch (IOException i) {
+      logErr("unable to open file!");
+    } catch (Exception i) {
+      logErr("at this point, how did this happen?");
+      logErr(i.toString());
+    }
+  }
+
+  @FXML
+  private void importF () {
+
   }
 
   @FXML

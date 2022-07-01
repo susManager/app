@@ -48,10 +48,20 @@ public class login_local {
 
   @FXML
   private void onSelectConfig() {
+    errorMsg.setOpacity(0);
+
     FileChooser fc = new FileChooser();
+    fc.setInitialDirectory(new File("."));
     fc.setTitle("Choose your config");
     File f = fc.showOpenDialog(login_pwd.getScene().getWindow());
-    errorMsg.setOpacity(0);
+
+    if (f == null || !f.exists()) {
+      errorMsg.setOpacity(1);
+      errorMsg.setText("config file not found");
+      logErr("config file not found");
+      return;
+    }
+
     EncrState state;
 
     try {
@@ -73,15 +83,18 @@ public class login_local {
 
   @FXML
   void onSelectEncrypted() {
+    errorMsg.setOpacity(0);
+
     FileChooser fc = new FileChooser();
     fc.setTitle("Choose the encrypted file");
+    fc.setInitialDirectory(new File("."));
     File f = fc.showOpenDialog(login_pwd.getScene().getWindow());
-    App.getState().setEncrypted(f);
-    errorMsg.setOpacity(0);
-    if (!f.exists()) {
+    if (f == null || !f.exists()) {
       errorMsg.setOpacity(1);
       errorMsg.setText("Encrypted file not found!");
-    }
+      logErr("Encrypted file not found!");
+    } else
+      App.getState().setEncrypted(f);
   }
 
   @FXML

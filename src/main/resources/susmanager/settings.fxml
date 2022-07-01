@@ -77,4 +77,6 @@
          <ChoiceBox fx:id="selectTheme" prefWidth="150.0" />
       </center>
    </BorderPane>
+    <Button onAction="#export" layoutX="34.0" layoutY="398.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Export"/>
+    <Button onAction="#importF" layoutX="182.0" layoutY="398.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Import"/>
 </Pane>
