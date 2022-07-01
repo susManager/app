@@ -137,7 +137,7 @@ public class login_local {
       logErr("Encrypted file not found lul");
     } catch (BadPaddingException e) {
       logErr("wrong password");
-    } catch (NoSuchAlgorithmException | InvalidKeySpecException | InvalidAlgorithmParameterException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException e ) {
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException | InvalidAlgorithmParameterException | NoSuchPaddingException | IllegalBlockSizeException e) {
       logErr("Decryption gone wrong (hot)");
       logErr(e.toString());
     } catch (InvalidKeyException e) {

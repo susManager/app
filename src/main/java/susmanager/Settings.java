@@ -1,27 +1,31 @@
 package susmanager;
 
-import fundur.systems.lib.Dummy;
-import fundur.systems.lib.FileManager;
-import fundur.systems.lib.Manager;
-import fundur.systems.lib.NetManager;
+import fundur.systems.lib.*;
 import fundur.systems.lib.sec.Security;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static susmanager.App.logErr;
 
 
 public class Settings implements Initializable {
+
+  @FXML
+  private TextField currTheme;
 
   @FXML
   private Button logoutBtn;
@@ -110,9 +114,10 @@ public class Settings implements Initializable {
   }
 
   @FXML
-  private void export() {
+  @Deprecated
+  private void exportToEncr() {
     AppState s = App.getState();
-    File f = new File(Security.hash(s.user()) + "-encrypted.sus");
+    File f = new File(s.user() + "-encrypted.sus");
     if (f.exists()) {
       f = new File(Security.hash(s.user()) + "-encrypted-" + (System.currentTimeMillis() / 1000) + ".sus");
     }
@@ -138,8 +143,57 @@ public class Settings implements Initializable {
   }
 
   @FXML
-  private void importF () {
+  private void tryExport() {
+    Alert a = new Alert(Alert.AlertType.CONFIRMATION, "Export Passwords?", ButtonType.YES, ButtonType.NO);
+    a.setTitle("Export confirmation");
+    a.setHeaderText("Are you sure?");
+    a.setContentText("This will export your passwords in plain text making them possible to be compromised!");
+    a.showAndWait();
+    if (a.getResult().equals(ButtonType.YES)) {
+      export();
+    }
+  }
 
+  private void export() {
+    AppState s = App.getState();
+    File f = new File(s.user() + "-encrypted.sus");
+    if (f.exists()) {
+      f = new File(s.user() + "-encrypted-" + (System.currentTimeMillis() / 1000) + ".sus");
+    }
+
+    try {
+      JSONObject obj = Manager.list2JSONObject(s.pwds());
+      FileManager.saveFile(obj.toString(), f);
+    } catch (IOException e) {
+      logErr("unable to open file!");
+    } catch (Exception e) {
+      logErr("at this point, how did this happen?");
+      logErr(e.toString());
+    }
+  }
+
+  @FXML
+  private void importF () {
+    AppState s = App.getState();
+
+    FileChooser fc = new FileChooser();
+    fc.setTitle("Select Plaintext");
+    fc.setInitialDirectory(new File("."));
+    File f = fc.showOpenDialog(logoutBtn.getScene().getWindow());
+    if (f == null || !f.exists())
+      return;
+    try {
+      JSONObject jsonNew = new JSONObject(FileManager.loadFile(f));
+      JSONObject jsonCurr = Manager.list2JSONObject(s.pwds());
+
+      List<Entry> merged = Manager.merge(jsonCurr, jsonNew);
+      s.setPwds(merged);
+      App.setRoot("main_screen");
+    } catch (FileNotFoundException e) {
+      logErr("file not found lmao");
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 
   @FXML
@@ -183,6 +237,7 @@ public class Settings implements Initializable {
     if (!App.getState().logged()) {
       logoutBtn.setOnAction(null);
       logoutBtn.setOpacity(0);
+      logoutBtn.setDisable(true);
     }
   }
 

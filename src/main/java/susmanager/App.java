@@ -212,6 +212,10 @@ public class App extends Application {
     musicPlayer.play();
   }
 
+  public static String getCurrentTheme() {
+    return currentTheme;
+  }
+
   public static void logErr(Object o) {
     System.out.println(o);
   }
