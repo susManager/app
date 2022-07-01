@@ -2,6 +2,8 @@ package susmanager;
 
 import fundur.systems.lib.FileManager;
 import fundur.systems.lib.sec.EncrState;
+import fundur.systems.lib.sec.Security;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -16,6 +18,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 
 import static susmanager.App.logErr;
 
@@ -97,8 +100,7 @@ public class login_local {
       App.getState().setEncrypted(f);
   }
 
-  @FXML
-  private void localLogin() {
+  private boolean pre() {
     errorMsg.setOpacity(0);
     AppState s = App.getState();
     if (login_pwd.getText().isBlank() || s.encrstate() == null || s.encrypted() == null || !s.encrypted().exists()) {
@@ -113,9 +115,17 @@ public class login_local {
       } else if (!s.encrypted().exists()){
         logErr("Encrypted file not found!");
       }
-      return;
+      return true;
     }
+    return false;
+  }
 
+  @FXML
+  private void localLogin() {
+    if (pre())
+      return;
+
+    AppState s = App.getState();
     try {
       var pwds = FileManager.getEntryListFromFile(login_pwd.getText(), s.encrstate(), s.encrypted());
       s.setPwds(pwds)
@@ -125,6 +135,8 @@ public class login_local {
       App.setRoot("main_screen");
     } catch (IOException e) {
       logErr("Encrypted file not found lul");
+    } catch (BadPaddingException e) {
+      logErr("wrong password");
     } catch (NoSuchAlgorithmException | InvalidKeySpecException | InvalidAlgorithmParameterException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException e ) {
       logErr("Decryption gone wrong (hot)");
       logErr(e.toString());
@@ -133,5 +145,26 @@ public class login_local {
       errorMsg.setText("Wrong password");
       logErr("Wrong password supplied");
     }
+  }
+
+  @FXML
+  private void createLocal() throws IOException {
+    if (login_pwd.getText().isBlank())
+      return;
+
+    EncrState state = Security.generateNewEncrstate();
+    String hsh = Security.hash(String.valueOf(System.currentTimeMillis() / 1000));
+
+    FileManager.saveFile(state.toString(), new File(hsh + "-config.json"));
+
+    App.getState()
+            .setEncrstate(state)
+            .setPwds(new ArrayList<>())
+            .setPassword(login_pwd.getText())
+            .setLocal(true)
+            .setLogged(true)
+            .setEncrypted(new File(hsh + "-encrypted.sus"))
+            .setDebug(false);
+    App.setRoot("main_screen");
   }
 }
