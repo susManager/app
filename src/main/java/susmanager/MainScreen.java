@@ -42,6 +42,7 @@ public class MainScreen implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     listView1.getItems().addAll(App.getState().pwds());
     listView1.setCellFactory(new EntryCellFactory());
+    listView1.setFocusTraversable(false);
   }
 
   @FXML
@@ -52,6 +53,11 @@ public class MainScreen implements Initializable {
   @FXML
   private void switchToAddPassword() throws IOException {
     App.setRoot("add_password");
+  }
+
+  @FXML
+  private void switchToEditPassword() throws IOException {
+    App.setRoot("edit_password");
   }
   
   @FXML
