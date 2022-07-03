@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -12,33 +13,30 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="350.0" styleClass="root" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="susmanager.MainScreen">
    <Pane prefHeight="50.0" prefWidth="350.0" styleClass="pane">
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../settings_icon.png"/>
+      <ImageView fx:id="settingsWheel" fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettings" onMouseEntered="#hoverEffect" onMouseExited="#hoverEffectStop" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../settings_icon.png" />
       </ImageView>
       <ImageView fitHeight="32.0" fitWidth="39.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#playThudSound" pickOnBounds="true" preserveRatio="true">
          <Image url="@../susManager_logo.png" />
       </ImageView>
-      <Text layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="susManager" styleClass="susmanager">
+      <Text layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="susmanager" text="susManager">
          <font>
             <Font name="Segoe UI" size="22.0" />
          </font>
+         <effect>
+            <Glow />
+         </effect>
       </Text>
    </Pane>
-   <Button layoutX="76.0" layoutY="499.0" mnemonicParsing="false" onAction="#switchToAddPassword" prefHeight="43.0"
-           prefWidth="200.0" text="ADD PASSWORD" styleClass="standard-button"/>
-   <TextField fx:id="searchBar1" layoutX="71.0" layoutY="68.0" onAction="#search" onKeyPressed="#search"
-              prefHeight="25.0" prefWidth="214.0" promptText="Search for Passwords..." styleClass="main-field"/>
-   <ScrollPane layoutX="26.0" layoutY="114.0"
-               styleClass="main-pane">
-      <ListView fx:id="listView1" styleClass="main-list" prefHeight="369.0" prefWidth="297.0"
-                style="-fx-text-fill: white; -fx-background-color: null;"/>
+   <Button layoutX="76.0" layoutY="499.0" mnemonicParsing="false" onAction="#switchToAddPassword" prefHeight="43.0" prefWidth="200.0" styleClass="standard-button" text="ADD PASSWORD" />
+   <TextField fx:id="searchBar1" layoutX="71.0" layoutY="68.0" onAction="#search" onKeyPressed="#search" prefHeight="25.0" prefWidth="214.0" promptText="Search for Passwords..." styleClass="main-field" />
+   <ScrollPane layoutX="26.0" layoutY="114.0" styleClass="main-pane">
+      <ListView fx:id="listView1" prefHeight="369.0" prefWidth="297.0" style="-fx-text-fill: white; -fx-background-color: null;" styleClass="main-list" />
    </ScrollPane>
-   <ImageView fx:id="nothing_found" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0"
-              styleClass="main-img">
-      <Image url="@../nothing_found_2.png"/>
+   <ImageView fx:id="nothing_found" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0" styleClass="main-img">
+      <Image url="@../nothing_found_2.png" />
    </ImageView>
-   <ImageView fx:id="allah" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0"
-              styleClass="main-img">
-      <Image url="@../mekka.png"/>
+   <ImageView fx:id="allah" fitHeight="371.0" fitWidth="299.0" layoutX="26.0" layoutY="114.0" opacity="0.0" styleClass="main-img">
+      <Image url="@../mekka.png" />
    </ImageView>
 </Pane>

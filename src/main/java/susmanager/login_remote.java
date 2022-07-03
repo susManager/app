@@ -5,6 +5,9 @@ import fundur.systems.lib.sec.EncrState;
 import fundur.systems.lib.sec.Security;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Glow;
+import javafx.scene.image.ImageView;
+
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -19,12 +22,35 @@ public class login_remote {
   @FXML
   private TextField  account_created, errorMsg, url, lg_usr, lg_pwd;
 
+  @FXML
+  private ImageView settingsWheel, switchToLoginLocal;
+
   /**
    * Plays the vine boom effect when the logo is clicked
    */
   @FXML
   private void playThudSound() {
     App.playThudSound();
+  }
+  
+  @FXML
+  private void hoverEffect(){
+  settingsWheel.setEffect(new Glow(1));
+  }
+
+  @FXML
+  private void hoverEffectStop(){
+  settingsWheel.setEffect(new Glow(0));
+  }
+
+  @FXML
+  private void hoverEffectSwitchLocalLogin(){
+  switchToLoginLocal.setEffect(new Glow(1));
+  }
+
+  @FXML
+  private void hoverEffectSwitchLocalLoginStop(){
+    switchToLoginLocal.setEffect(new Glow(0));
   }
 
   /**

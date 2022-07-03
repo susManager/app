@@ -24,28 +24,18 @@
                 <Glow />
             </effect>
         </Text>
-        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettingsLogin" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="settingsWheel" fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettingsLogin" onMouseEntered="#hoverEffect" onMouseExited="#hoverEffectStop" pickOnBounds="true" preserveRatio="true">
             <Image url="@../settings_icon.png" />
         </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="255.0" layoutY="9.0" onMouseClicked="#switchToLoginRemote" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="switchToLoginRemote" fitHeight="32.0" fitWidth="32.0" layoutX="255.0" layoutY="9.0" onMouseClicked="#switchToLoginRemote" onMouseEntered="#hoverEffectSwitchRemoteLogin" onMouseExited="#hoverEffectSwitchRemoteLoginStop" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../local.png" />
          </image>
       </ImageView>
     </Pane>
-    <Button layoutX="34.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSelectConfig" prefHeight="66.0" prefWidth="135.0" styleClass="standard-button" text="Select Config" />
-    <Button layoutX="183.0" layoutY="231.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="66.0" prefWidth="135.0" styleClass="standard-button" text="Select Encrypted" />
-    <Button layoutX="68.0" layoutY="454.0" mnemonicParsing="false" onAction="#localLogin" prefHeight="43.0" prefWidth="217.0" styleClass="standard-button" text="Login">
-        <font>
-            <Font name="Segoe UI" size="10.0" />
-        </font>
-    </Button>
-    <Button layoutX="68.0" layoutY="400.0" mnemonicParsing="false" onAction="#createLocal" prefHeight="43.0" prefWidth="217.0" styleClass="extreme-button" text="Create Account">
-        <font>
-            <Font name="Segoe UI" size="10.0" />
-        </font>
-    </Button>
-    <BorderPane layoutX="151.0" layoutY="103.0" styleClass="login-pane">
+    <Button layoutX="116.0" layoutY="188.0" mnemonicParsing="false" onAction="#onSelectConfig" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Select Config" />
+    <Button layoutX="116.0" layoutY="254.0" mnemonicParsing="false" onAction="#onSelectEncrypted" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Select Encrypted" />
+    <BorderPane layoutX="150.0" layoutY="113.0" styleClass="login-pane">
         <center>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Login!">
                 <font>
@@ -57,7 +47,8 @@
             <Glow />
         </effect>
     </BorderPane>
-    <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="329.0" promptText="Enter Password..." styleClass="login-field" />
-    <Button layoutX="35.0" layoutY="511.0" mnemonicParsing="false" onMouseClicked="#defaultMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
-    <TextField fx:id="errorMsg" editable="false" layoutX="100.0" layoutY="370.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Either wrong Password or Username!" />
+    <PasswordField fx:id="login_pwd" layoutX="101.0" layoutY="340.0" promptText="Enter Password..." styleClass="login-field" />
+    <TextField fx:id="errorMsg" alignment="CENTER" editable="false" layoutX="67.0" layoutY="385.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="Either wrong Password or Username!" />
+    <Button layoutX="73.0" layoutY="410.0" mnemonicParsing="false" onAction="#localLogin" prefHeight="43.0" prefWidth="205.0" styleClass="standard-button" text="Login" />
+    <Button layoutX="73.0" layoutY="466.0" mnemonicParsing="false" onAction="#createLocal" prefHeight="43.0" prefWidth="205.0" styleClass="extreme-button" text="Create Account" />
 </Pane>

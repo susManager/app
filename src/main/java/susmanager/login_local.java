@@ -6,6 +6,8 @@ import fundur.systems.lib.sec.Security;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Glow;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
 import javax.crypto.BadPaddingException;
@@ -27,6 +29,9 @@ public class login_local {
   @FXML
   private TextField errorMsg, login_pwd;
 
+  @FXML
+  private ImageView settingsWheel, switchToLoginRemote;
+
   /**
    * Plays the vine boom effect when the logo is clicked
    */
@@ -47,6 +52,26 @@ public class login_local {
   @FXML
   private void switchToLoginRemote() throws IOException {
     App.setRoot("login_remote");
+  }
+  
+  @FXML
+  private void hoverEffect(){
+  settingsWheel.setEffect(new Glow(1));
+  }
+
+  @FXML
+  private void hoverEffectStop(){
+  settingsWheel.setEffect(new Glow(0));
+  }
+
+  @FXML
+  private void hoverEffectSwitchRemoteLogin(){
+    switchToLoginRemote.setEffect(new Glow(1));
+  }
+
+  @FXML
+  private void hoverEffectSwitchRemoteLoginStop(){
+    switchToLoginRemote.setEffect(new Glow(0));
   }
 
   @FXML

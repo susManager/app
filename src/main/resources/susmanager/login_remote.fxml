@@ -24,22 +24,22 @@
                 <Glow />
             </effect>
         </Text>
-        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettingsLogin" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="settingsWheel" fitHeight="32.0" fitWidth="32.0" layoutX="293.0" layoutY="8.0" onMouseClicked="#switchToSettingsLogin" onMouseEntered="#hoverEffect" onMouseExited="#hoverEffectStop" pickOnBounds="true" preserveRatio="true">
             <Image url="@../settings_icon.png" />
         </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="255.0" layoutY="9.0" onMouseClicked="#switchToLoginLocal" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="switchToLoginLocal" fitHeight="32.0" fitWidth="32.0" layoutX="255.0" layoutY="9.0" onMouseClicked="#switchToLoginLocal" onMouseEntered="#hoverEffectSwitchLocalLogin" onMouseExited="#hoverEffectSwitchLocalLoginStop" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../remote.png" />
          </image>
       </ImageView>
     </Pane>
-    <Button layoutX="34.0" layoutY="398.0" mnemonicParsing="false" onAction="#tryLogin" prefHeight="43.0" prefWidth="135.0" styleClass="standard-button" text="Login" />
-    <Button layoutX="182.0" layoutY="398.0" mnemonicParsing="false" onAction="#tryCreateAccount" prefHeight="43.0" prefWidth="135.0" styleClass="extreme-button" text="Create Account">
+    <Button layoutX="73.0" layoutY="410.0" mnemonicParsing="false" onAction="#tryLogin" prefHeight="43.0" prefWidth="205.0" styleClass="standard-button" text="Login" />
+    <Button layoutX="73.0" layoutY="466.0" mnemonicParsing="false" onAction="#tryCreateAccount" prefHeight="43.0" prefWidth="205.0" styleClass="extreme-button" text="Create Account">
         <font>
-            <Font name="Segoe UI" size="10.0" />
+            <Font name="Segoe UI" size="12.0" />
         </font>
     </Button>
-    <BorderPane layoutX="67.0" layoutY="102.0" styleClass="login-pane">
+    <BorderPane layoutX="67.0" layoutY="114.0" styleClass="login-pane">
         <center>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Login or create an account!">
                 <font>
@@ -51,10 +51,9 @@
             <Glow />
         </effect>
     </BorderPane>
-    <PasswordField fx:id="lg_pwd" layoutX="101.0" layoutY="275.0" promptText="Enter Password..." styleClass="login-field" />
-    <Button layoutX="35.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#defaultMainScreen" prefHeight="25.0" prefWidth="281.0" styleClass="standard-button" text="[DEBUG] Username : DemoUser Password: 1234" />
-    <TextField fx:id="lg_usr" layoutX="101.0" layoutY="211.0" promptText="Enter Username..." styleClass="login-field" />
-    <TextField fx:id="account_created" editable="false" layoutX="67.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
-    <TextField fx:id="errorMsg" editable="false" layoutX="61.0" layoutY="341.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="error" />
-    <TextField fx:id="url" layoutX="101.0" layoutY="340.0" promptText="Enter Server Address..." styleClass="login-field" text="http://fundur.systems:6969/"/>
+    <PasswordField fx:id="lg_pwd" layoutX="101.0" layoutY="260.0" promptText="Enter Password..." styleClass="login-field" />
+    <TextField fx:id="lg_usr" layoutX="101.0" layoutY="196.0" promptText="Enter Username..." styleClass="login-field" />
+    <TextField fx:id="account_created" alignment="CENTER" editable="false" layoutX="67.0" layoutY="161.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
+    <TextField fx:id="errorMsg" alignment="CENTER" editable="false" layoutX="67.0" layoutY="161.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="error" />
+    <TextField fx:id="url" layoutX="73.0" layoutY="340.0" prefHeight="25.0" prefWidth="205.0" promptText="Enter Server Address..." styleClass="login-field" text="http://fundur.systems:6969/" />
 </Pane>

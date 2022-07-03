@@ -2,10 +2,11 @@ package susmanager;
 
 import fundur.systems.lib.*;
 import fundur.systems.lib.sec.Security;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.effect.Glow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import org.json.JSONObject;
@@ -16,7 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static susmanager.App.logErr;
@@ -26,6 +26,9 @@ public class Settings implements Initializable {
 
   @FXML
   private TextField currTheme;
+
+  @FXML
+  private ImageView backArrow;
 
   @FXML
   private Button logoutBtn;
@@ -73,6 +76,16 @@ public class Settings implements Initializable {
   @FXML
   private void triggerLogout() throws IOException {
     Settings.logout();
+  }
+   
+  @FXML
+  private void hoverEffect(){
+    backArrow.setEffect(new Glow(1));
+  }
+
+  @FXML
+  private void hoverEffectStop(){
+    backArrow.setEffect(new Glow(0));
   }
 
   public static void logout() throws IOException {

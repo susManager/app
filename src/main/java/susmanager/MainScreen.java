@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 
@@ -29,6 +30,9 @@ public class MainScreen implements Initializable {
   @FXML
   private TextField searchBar1;
 
+  @FXML
+  private ImageView settingsWheel;
+
   /**
    * the
    * @param url - is ignored
@@ -48,6 +52,16 @@ public class MainScreen implements Initializable {
   @FXML
   private void switchToAddPassword() throws IOException {
     App.setRoot("add_password");
+  }
+  
+  @FXML
+  private void hoverEffect(){
+  settingsWheel.setEffect(new Glow(1));
+  }
+
+  @FXML
+  private void hoverEffectStop(){
+  settingsWheel.setEffect(new Glow(0));
   }
 
   /**
