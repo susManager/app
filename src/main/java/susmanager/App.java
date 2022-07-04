@@ -93,8 +93,7 @@ public class App extends Application {
   }
 
   private void initCSS() {
-    Random random = new Random();
-    //TODO: add random play
+ /*   Random random = new Random();                           //TEMPORARLY REMOVED FOR PRODUCTION
     if (true) {
       MediaPlayer m = new MediaPlayer(new Media(getTopRes("bgm_mc.mp3")));
       scheduleRun(m::play, 42 * 1000);
@@ -109,6 +108,7 @@ public class App extends Application {
           )
       );
     }
+*/
   }
 
   /**

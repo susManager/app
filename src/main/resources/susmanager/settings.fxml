@@ -45,9 +45,9 @@
             <ToggleButton mnemonicParsing="false" onAction="#playNotification" prefHeight="25.0" prefWidth="78.0" styleClass="settings-field" text="No ❤" textFill="WHITE" BorderPane.alignment="CENTER" />
       </top>
     </BorderPane>
-    <Text layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="enable Allah Mode 🙏" />
-    <Text layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="enable Background Music" />
-    <Text layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="allow woman" />
+    <Text layoutX="57.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="Force UDP instead of TCP" />
+    <Text layoutX="57.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="Enable Background Music" />
+    <Text layoutX="57.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="Telemetry" />
     <BorderPane layoutX="129.0" layoutY="87.943359375" styleClass="settings-field-title">
         <center>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Settings">
@@ -79,7 +79,7 @@
         <Image url="@../troll_face.png" />
     </ImageView>
    <Text layoutX="56.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="Color Theme" />
-   <BorderPane layoutX="185.0" layoutY="338.0" prefWidth="150.0" styleClass="settings-field">
+   <BorderPane layoutX="168.0" layoutY="334.0" prefWidth="150.0" styleClass="settings-field">
       <center>
          <ChoiceBox fx:id="selectTheme" prefWidth="150.0" />
       </center>
