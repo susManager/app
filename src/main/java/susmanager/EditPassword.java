@@ -44,7 +44,7 @@ public class EditPassword {
 
   @FXML
   private void editPassword() throws IOException {
-    App.getState().pwds();
+    System.out.println(App.getState().pwds());
     switchToMainScreen();
   }
 }

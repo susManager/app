@@ -3,7 +3,6 @@ package susmanager;
 import fundur.systems.lib.FileManager;
 import fundur.systems.lib.sec.EncrState;
 import fundur.systems.lib.sec.Security;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
