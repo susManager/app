@@ -28,5 +28,5 @@
     -fx-background-color: #7030a0;
 }
 .list-cell { -fx-text-fill: white;}
-.list-cell:odd { -fx-background-color: #070a1b; }
-.list-cell:even { -fx-background-color: #050714; }
+.list-cell:odd { -fx-background-color: list-odd; }
+.list-cell:even { -fx-background-color: list-even; }
