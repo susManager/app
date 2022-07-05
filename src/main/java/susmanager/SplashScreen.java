@@ -46,10 +46,11 @@ public class SplashScreen implements Initializable {
     public static void delay(long millis, Runnable continuation) {
         Task<Void> sleeper = new Task<>() {
             @Override
-            protected Void call()  {
+            protected Void call() {
                 try {
                     Thread.sleep(millis);
-                } catch (InterruptedException ignored) {}
+                } catch (InterruptedException ignored) {
+                }
                 return null;
             }
         };
