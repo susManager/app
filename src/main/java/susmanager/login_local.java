@@ -103,13 +103,6 @@ public class login_local {
     }
 
     @FXML
-    private void defaultMainScreen() throws IOException {
-        MainScreen.setupDefaultPasswords();
-        App.getState().setLogged(true);
-        App.setRoot("main_screen");
-    }
-
-    @FXML
     void onSelectEncrypted() {
         errorMsg.setOpacity(0);
 
