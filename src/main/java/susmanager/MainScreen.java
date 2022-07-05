@@ -2,6 +2,7 @@ package susmanager;
 
 import fundur.systems.lib.Entry;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListCell;
@@ -9,11 +10,16 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class MainScreen implements Initializable {
@@ -42,7 +48,15 @@ public class MainScreen implements Initializable {
   public void initialize(URL url, ResourceBundle resourceBundle) {
     listView1.getItems().addAll(App.getState().pwds());
     listView1.setCellFactory(new EntryCellFactory());
-    listView1.setFocusTraversable(false);
+
+    listView1.setOnKeyPressed(new KeyHander<>(listView1));
+
+    listView1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+      @Override
+      public void handle(MouseEvent mouseEvent) {
+        System.out.println(mouseEvent.getTarget() instanceof Entry);
+      }
+    });
   }
 
   @FXML
@@ -133,7 +147,7 @@ public class MainScreen implements Initializable {
   public static class EntryCellFactory implements Callback<ListView<Entry>, ListCell<Entry>> {
     @Override
     public ListCell<Entry> call(ListView<Entry> entryListView) {
-      return new ListCell<Entry>() {
+      var cell = new ListCell<Entry>() {
         @Override
         public void updateItem(Entry entry, boolean empty) {
           super.updateItem(entry, empty);
@@ -143,7 +157,33 @@ public class MainScreen implements Initializable {
             setText(entry.name());
           }
         }
+
+        @Override
+        public void startEdit() {
+          EditPassword.setPwd(this.getItem());
+          try {
+            App.setRoot("edit_password");
+          } catch (IOException e) {
+            throw new RuntimeException(e);
+          }
+        }
       };
+      cell.setEditable(true);
+      return cell;
+    }
+  }
+
+  public static class KeyHander<KeyEvent extends Event> implements  EventHandler<KeyEvent>{
+    private ListView<Entry> l1;
+    public KeyHander(ListView<Entry> ll) {
+      l1 = ll;
+    }
+
+    @Override
+    public void handle(KeyEvent keyEvent) {
+      if (keyEvent.hashCode() == KeyCode.ENTER.getCode()) {
+        EditPassword.setPwd(l1.getSelectionModel().getSelectedItem());
+      }
     }
   }
 }

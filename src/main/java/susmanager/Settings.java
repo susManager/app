@@ -122,6 +122,7 @@ public class Settings implements Initializable {
             .setUrl("")
             .setLogged(false)
             .setDebug(false);
+    EditPassword.setPwd(null);
     App.setRoot("login_remote");
   }
 
