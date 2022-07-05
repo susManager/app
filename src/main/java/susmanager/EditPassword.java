@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +17,9 @@ import java.util.stream.Collectors;
 public class EditPassword implements Initializable {
 
   private static Entry pwd;
+
+  @FXML
+  private Pane pane;
 
   @FXML
   private TextField not_all_info;
@@ -29,6 +34,14 @@ public class EditPassword implements Initializable {
     user.setText(pwd.usr());
     password.setText(pwd.pwd());
     notes.setText(pwd.notes());
+    pane.setOnKeyPressed(e -> {
+      if (e.getCode().equals(KeyCode.ESCAPE)) {
+        try {
+          return2Main();
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
+      }});
   }
 
   @FXML
@@ -58,7 +71,11 @@ public class EditPassword implements Initializable {
 
   @FXML
   private void savePassword() throws IOException {
-    System.out.println(App.getState().pwds());
+    pwd.setName(name.getText());
+    pwd.setUsr(user.getText());
+    pwd.setPwd(password.getText());
+    pwd.setNotes(password.getText());
+    pwd.setTimestamp(System.currentTimeMillis() / 1000);
     return2Main();
   }
 
@@ -66,14 +83,19 @@ public class EditPassword implements Initializable {
   private void onDeletePwd() throws IOException {
     App.getState().setPwds(
             App.getState().pwds()
-                    .stream().filter(e ->
-                      !(e.toString().equals(pwd.toString()))
-                    ).collect(Collectors.toList())
+                    .stream()
+                    .filter(e ->
+                      !(e.toString().equals(pwd.toString())))
+                    .collect(Collectors.toList())
     );
     return2Main();
   }
 
   public static void setPwd(Entry e) {
     EditPassword.pwd = e;
+  }
+
+  public static boolean isNull() {
+    return pwd == null;
   }
 }

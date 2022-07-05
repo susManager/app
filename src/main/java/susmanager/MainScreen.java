@@ -10,8 +10,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -25,7 +25,10 @@ import java.util.stream.Collectors;
 public class MainScreen implements Initializable {
 
   @FXML
-  private ListView<Entry> listView1 = new ListView<>();
+  private Pane pane;
+
+  @FXML
+  private ListView<Entry> listView = new ListView<>();
 
   @FXML
   private ImageView nothing_found;
@@ -39,6 +42,8 @@ public class MainScreen implements Initializable {
   @FXML
   private ImageView settingsWheel;
 
+  private long last;
+
   /**
    * the
    * @param url - is ignored
@@ -46,17 +51,36 @@ public class MainScreen implements Initializable {
    */
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    listView1.getItems().addAll(App.getState().pwds());
-    listView1.setCellFactory(new EntryCellFactory());
+    listView.setCellFactory(new EntryCellFactory());
+    listView.getItems().addAll(App.getState().pwds());
+    listView.setOnMouseClicked(e -> {
+      if ((System.currentTimeMillis() - last) < 500) {
+        try {
+          switchToEditPassword();
+        } catch (IOException ex) {
+          throw new RuntimeException(ex);
+        }
+      } else
+        last = System.currentTimeMillis();
+    });
 
-    listView1.setOnKeyPressed(new KeyHander<>(listView1));
-
-    listView1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-      @Override
-      public void handle(MouseEvent mouseEvent) {
-        System.out.println(mouseEvent.getTarget() instanceof Entry);
+    listView.setOnKeyPressed(k -> {
+      switch (k.getCode()) {
+        case SPACE:
+        case ENTER:
+          if (!EditPassword.isNull()) {
+            try {
+              switchToEditPassword();
+            } catch (IOException e) {
+              throw new RuntimeException(e);
+            }
+          }
+          break;
       }
     });
+
+    nothing_found.setDisable(true);
+    allah.setDisable(true);
   }
 
   @FXML
@@ -71,7 +95,7 @@ public class MainScreen implements Initializable {
 
   @FXML
   private void switchToEditPassword() throws IOException {
-    App.setRoot("edit_password");
+    if (!EditPassword.isNull()) App.setRoot("edit_password");
   }
   
   @FXML
@@ -90,8 +114,8 @@ public class MainScreen implements Initializable {
    */
   @FXML
   void search(Event _ignored) {
-    listView1.getItems().clear();
-    listView1.getItems().addAll(searchList(searchBar1.getText(), App.getState().pwds()));
+    listView.getItems().clear();
+    listView.getItems().addAll(searchList(searchBar1.getText(), App.getState().pwds()));
   }
 
   @FXML
@@ -100,6 +124,9 @@ public class MainScreen implements Initializable {
   }
 
   private List<Entry> searchList(String searchWords, List<Entry> entries) {
+    allah.setDisable(true);
+    nothing_found.setDisable(true);
+
     allah.setOpacity(0);
     nothing_found.setOpacity(0);
 
@@ -121,8 +148,10 @@ public class MainScreen implements Initializable {
 
     if (results.size() == 0) {
       nothing_found.setOpacity(1);
+      nothing_found.setDisable(false);
     }
     if (searchWords.equals("allah")) {
+      allah.setDisable(false);
       App.playAllahMode();
       allah.setOpacity(1);
     }
@@ -157,33 +186,25 @@ public class MainScreen implements Initializable {
             setText(entry.name());
           }
         }
-
-        @Override
-        public void startEdit() {
-          EditPassword.setPwd(this.getItem());
-          try {
-            App.setRoot("edit_password");
-          } catch (IOException e) {
-            throw new RuntimeException(e);
-          }
-        }
       };
       cell.setEditable(true);
+      cell.addEventFilter(MouseEvent.MOUSE_CLICKED, e -> {
+        EditPassword.setPwd(cell.getItem());
+      });
       return cell;
     }
   }
 
-  public static class KeyHander<KeyEvent extends Event> implements  EventHandler<KeyEvent>{
+  public static class KeyHander<KeyEvent extends Event> implements  EventHandler<KeyEvent> {
     private ListView<Entry> l1;
+
     public KeyHander(ListView<Entry> ll) {
       l1 = ll;
     }
 
     @Override
     public void handle(KeyEvent keyEvent) {
-      if (keyEvent.hashCode() == KeyCode.ENTER.getCode()) {
-        EditPassword.setPwd(l1.getSelectionModel().getSelectedItem());
-      }
+
     }
   }
 }

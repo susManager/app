@@ -51,9 +51,9 @@
             <Glow />
         </effect>
     </BorderPane>
-    <PasswordField fx:id="lg_pwd" layoutX="101.0" layoutY="260.0" promptText="Enter Password..." styleClass="login-field" />
-    <TextField fx:id="lg_usr" layoutX="101.0" layoutY="196.0" promptText="Enter Username..." styleClass="login-field" />
+    <PasswordField fx:id="lg_pwd" layoutX="101.0" layoutY="260.0" text="test" promptText="Enter Password..." styleClass="login-field" />
+    <TextField fx:id="lg_usr" layoutX="101.0" layoutY="196.0" promptText="Enter Username..." styleClass="login-field"  text="test"/>
     <TextField fx:id="account_created" alignment="CENTER" editable="false" layoutX="67.0" layoutY="161.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: green; -fx-background-color: null;" text="Account created! You can now login." />
     <TextField fx:id="errorMsg" alignment="CENTER" editable="false" layoutX="67.0" layoutY="161.0" opacity="0.0" prefHeight="25.0" prefWidth="217.0" style="-fx-text-fill: red; -fx-background-color: null;" text="error" />
-    <TextField fx:id="url" layoutX="73.0" layoutY="340.0" prefHeight="25.0" prefWidth="205.0" promptText="Enter Server Address..." styleClass="login-field" />
+    <TextField fx:id="url" layoutX="73.0" layoutY="340.0" prefHeight="25.0" prefWidth="205.0" text="http://fundur.systems:6969/" promptText="Enter Server Address..." styleClass="login-field" />
 </Pane>
