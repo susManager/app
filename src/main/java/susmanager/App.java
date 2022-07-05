@@ -52,7 +52,7 @@ App extends Application {
     private void setupCloseHandler() {
         scene.getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, (_ignored) -> {
             try {
-                Settings.logout();
+                if (state.logged()) Settings.logout();
                 musicPlayer.stop();
                 timer.cancel();
             } catch (IOException ignored) {
