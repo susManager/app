@@ -34,8 +34,7 @@
             <Font name="Segoe UI" size="10.0"/>
         </font>
     </Button>
-    <Text fill="WHITE" layoutX="91.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox"
-          text="susManager v0.1 | Build: z20ouk"/>
+    <Text fill="WHITE" layoutX="91.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textBox" text="susManager v0.2 | Build: a6j9kn" />
     <BorderPane layoutX="235.0" layoutY="183.0" styleClass="settings-field">
         <center>
             <ToggleButton mnemonicParsing="false" onAction="#playAllahMode" prefHeight="25.0" prefWidth="34.0"
